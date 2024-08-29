@@ -60,17 +60,67 @@
 }
 
 
+/* Scoped Styling for the Event Section */
+.event-section .glowing-text {
+  text-shadow: 0 0 10px rgba(236, 16, 16, 0.8), 0 0 20px rgba(236, 16, 16, 0.6), 0 0 30px rgba(236, 16, 16, 0.4);
+  animation: glow 1.5s infinite alternate;
+}
+
+.event-section .event-card {
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(to bottom right, rgba(236, 16, 16, 0.8), rgba(0, 0, 0, 0.8));
+}
+
+.event-section .event-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 45px rgba(236, 16, 16, 0.7);
+}
+
+.event-section .image-container img {
+  transition: transform 0.5s ease;
+}
+
+.event-section .image-container:hover img {
+  transform: scale(1.05);
+}
+
+.event-section .overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.event-section .event-card:hover .overlay {
+  background-color: rgba(236, 16, 16, 0.5);
+}
+
+/* Glow Animation */
+@keyframes glow {
+  0% {
+      text-shadow: 0 0 5px rgba(236, 16, 16, 0.4), 0 0 10px rgba(236, 16, 16, 0.3);
+  }
+  100% {
+      text-shadow: 0 0 20px rgba(236, 16, 16, 0.8), 0 0 30px rgba(236, 16, 16, 0.6), 0 0 40px rgba(236, 16, 16, 0.4);
+  }
+}
+
+
 /*** Heading ***/
 h1,
 h2,
 .fw-bold {
-    font-weight: 800 !important;
+    font-weight: 600 !important;
     font-family: "Roboto Slab", serif;
 }
 
 #head{
-    font-family: "Roboto Slab", serif;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
+
 
 
 h3,
@@ -105,7 +155,73 @@ border-radius: 30px;
     color: red;
 }
 #abt{
-    background-color: #141E46;
+    background-color: #070040;
+    font-family: "Rokkitt", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+@media (max-width: 768px) {
+  .row.gx-0 {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+  }
+  .col-lg-4.col-md-4.col-12 {
+      flex: 0 0 auto;
+      width: calc(100% / 3); /* Adjusts to show all three in a single line */
+  }
+}
+@media (max-width: 576px) {
+  #fact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      text-align: center;
+  }
+
+  #fact .bg-white,
+  #fact .bg-dark {
+      width: 50px;
+      height: 50px;
+  }
+
+  #icon {
+      font-size: 24px; /* Smaller icon size for small screens */
+  }
+
+  #ft {
+      font-size: 14px; /* Smaller text size for small screens */
+  }
+
+  #fact h1 {
+      font-size: 24px; /* Adjust the number size */
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  #fact {
+      margin-bottom: 20px;
+  }
+
+  #fact .bg-white,
+  #fact .bg-dark {
+      width: 55px;
+      height: 55px;
+  }
+
+  #icon {
+      font-size: 28px; /* Slightly larger icon size for medium screens */
+  }
+
+  #ft {
+      font-size: 16px; /* Slightly larger text size for medium screens */
+  }
+
+  #fact h1 {
+      font-size: 28px; /* Adjust the number size */
+  }
 }
 
 
@@ -158,6 +274,20 @@ border-radius: 30px;
 #about{
 color: #EEF9FF;
 }
+
+
+
+.alime-portfolio-area {
+  background-color: #F5EDED; /* Light brown color */
+  padding: 80px 0; /* Preserve the existing padding */
+}
+
+.single-portfolio-content {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
 
 
 
@@ -216,7 +346,7 @@ color: #EEF9FF;
     padding: 35px 0;
     color: #FFFFFF;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 900;
     outline: none;
     transition: .5s;
     
@@ -224,8 +354,9 @@ color: #EEF9FF;
 
 .sticky-top.navbar-dark .navbar-nav .nav-link {
     padding: 20px 0;
-    color: #F05941;
-}
+    color: #141E46;
+  };
+
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
@@ -244,7 +375,7 @@ color: #EEF9FF;
 @media (max-width: 991.98px) {
     .sticky-top.navbar-dark {
         position: relative;
-        background: #FFFFFF;
+        background: #ffffff;
     }
 
     .navbar-dark .navbar-nav .nav-link,
@@ -271,7 +402,7 @@ color: #EEF9FF;
     
     .sticky-top.navbar-dark {
         position: fixed;
-        background: #FFFFFF;
+        background: #ffffff;
     }
 
     .navbar-dark .navbar-nav .nav-link::before {
@@ -301,6 +432,53 @@ color: #EEF9FF;
 }
 
 
+.pushable {
+  background: hsl(340deg 100% 32%);
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+}
+.front {
+  display: block;
+  padding: 12px 8px;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  background: hsl(345deg 100% 47%);
+  color: white;
+  transform: translateY(-6px);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+}
+
+
+.button-container {
+  text-align: center;
+}
+
+.contact-button {
+  padding: 8px 30px;
+  font-size: 18px;
+  color: white;
+  background-color: #d62417;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-button:hover {
+  background-color: #2980b9;
+}
+
+.contact-button:active {
+  background-color: red;
+  transform: scale(0.95);
+}
 
 
 .form-comments {
@@ -2313,6 +2491,39 @@ input:required {
     height: 100%;
     border: none !important;
     border-radius: 10px; }
+
+    .testimonial-item {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow for a more prominent border */
+      margin: 20px; /* Increased margin for more space */
+      padding: 20px; /* Added padding to give more space inside the testimonial */
+  }
+  
+  .testimonial-item .d-flex {
+      border-bottom: 1px solid #eaeaea;
+      padding-top: 20px;
+      padding-bottom: 20px;
+  }
+  
+  .testimonial-item img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+  }
+  
+  .testimonial-item .ps-4 {
+      padding-left: 15px;
+  }
+  
+  .testimonial-item .pt-4 {
+      padding-top: 20px;
+  }
+  
+  .testimonial-item .pb-5 {
+      padding-bottom: 20px;
+  }
+  
 
 /*# sourceMappingURL=style.css.map */
 

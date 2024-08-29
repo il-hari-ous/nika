@@ -1,11 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyDKtnXcFjSc5qOg04NdS6el1MPvSFGLNaQ",
-  authDomain: "studios-675db.firebaseapp.com",
-  databaseURL: "https://studios-675db-default-rtdb.firebaseio.com",
-  projectId: "studios-675db",
-  storageBucket: "studios-675db.appspot.com",
-  messagingSenderId: "647750172431",
-  appId: "1:647750172431:web:12dbc096fb9771a879c87a"
+  apiKey: "AIzaSyBg96FD4sTNN5j_qENOArNV960ppxQ1yCA",
+  authDomain: "banquet-hall-c5635.firebaseapp.com",
+  databaseURL: "https://banquet-hall-c5635-default-rtdb.firebaseio.com",
+  projectId: "banquet-hall-c5635",
+  storageBucket: "banquet-hall-c5635.appspot.com",
+  messagingSenderId: "353784900512",
+  appId: "1:353784900512:web:f1c69364820f0251a052c5"
 };
 
 
@@ -48,3 +48,17 @@ const firebaseConfig = {
   const getElementVal = (id) => {
     return document.getElementById(id).value;
   };
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const alertBox = document.querySelector(".animate-alert");
+    
+    // Show the alert
+    alertBox.classList.add("show");
+  
+    // Hide the alert after 3 seconds
+    setTimeout(() => {
+      alertBox.classList.remove("show");
+    }, 3000);
+  });
+  

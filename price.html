@@ -29,6 +29,8 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    
 </head>
 
 <body>
@@ -38,9 +40,8 @@
     </div>
     <!-- Spinner End -->
 
-
     <!-- Topbar Start -->
-    <div class="container-fluid  px-5 d-none d-lg-block" id="Top">
+    <div class="container-fluid px-5 d-none d-lg-block" id="Top">
         <div class="row gx-0">
             <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
@@ -51,9 +52,7 @@
             </div>
             <div class="col-lg-4 text-center text-lg-end">
                 <div class="d-inline-flex align-items-center" style="height: 45px;">
-                   
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                   
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
                     <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
                 </div>
@@ -62,40 +61,35 @@
     </div>
     <!-- Topbar End -->
 
-
-    <!-- Navbar Start -->
+    <!-- Navbar & Carousel Start -->
     <div class="container-fluid position-relative p-0">
-        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-4 py-3 py-lg-0">
             <a href="index.html" class="navbar-brand p-0">
-                <h1 class="m-0"id="head">E.J.B Banquet Hall</h1>
+                <h1 class="m-0" id="head">E.J.B Banquet Hall</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="index.html" class="nav-item nav-link ">Home</a>
-                    <a href="about.html" class="nav-item nav-link ">About</a>
-                    <a href="service.html" class="nav-item nav-link ">Events</a>
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Events</a>
                     <a href="gallery.html" class="nav-item nav-link">Gallery</a>
                     <a href="price.html" class="nav-item nav-link active">Pricing</a>
-                    
-                    
-                    
                     <a href="contact.html" class="nav-item nav-link">Contact</a>
-                
+                </div>
+            </div>
         </nav>
 
-        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" style="max-height: 380px;">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="w-100" src="img/Rosario-Church-hall.jpg" alt="Image" style="max-height: 380px;">
+                    <img class="w-100" src="img/bg.jpg" alt="Image" style="max-height: 380px;">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-uppercase mb-3 animated slideInDown">Special Events</h5>
                             <h5 class="display-1 text-white mb-md-4 animated zoomIn">Best For All Your Special Occasions</h5>
-                            
-                           
                         </div>
                     </div>
                 </div>
@@ -105,23 +99,14 @@
                         <div class="p-3" style="max-width: 900px;">
                             <h5 class="text-white text-uppercase mb-3 animated slideInDown">Special Events</h5>
                             <h5 class="display-1 text-white mb-md-4 animated zoomIn">Best For All Your Special Occasions</h5>
-                            
                         </div>
                     </div>
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
-        
     </div>
-    <!-- Navbar End -->
+    <!-- Navbar & Carousel End -->
+
 
 
     <!-- Full Screen Search Start -->
@@ -268,11 +253,23 @@
                 <!-- Map Section -->
                 <div class="col-lg-4 col-md-6">
                     <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
-                        <iframe class="w-100 mb-n2" style="height: 450px;"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.498595052592!2d80.15764417482191!3d13.130919211365853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52630ea1ecb3c7%3A0x635f08deb7b29751!2sEJB%20Mahal!5e0!3m2!1sen!2sin!4v1708059410870!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade" frameborder="0" allowfullscreen=""
-                                aria-hidden="false" tabindex="0"></iframe>
+                        <div style="
+                            position: relative;
+                            overflow: hidden;
+                            padding-top: 56.25%; /* Aspect Ratio 16:9 */
+                            border-radius: 15px; /* Rounded corners */
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for better appearance */
+                        ">
+                            <iframe class="w-100" style="
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                border: 0;
+                                border-radius: 15px; /* Rounded corners for the iframe itself */
+                            " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.498595052592!2d80.15764417482191!3d13.130919211365853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52630ea1ecb3c7%3A0x635f08deb7b29751!2sEJB%20Mahal!5e0!3m2!1sen!2sin!4v1708059410870!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" frameborder="0" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -284,6 +281,11 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919444832214" class="btn btn-lg btn-primary btn-lg-square rounded-circle whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+
+    <!-- Phone Button -->
+    <a href="tel:+919444832214" class="btn btn-lg btn-primary btn-lg-square rounded-circle phone-btn"><i class="fa fa-phone"></i></a>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
