@@ -151,21 +151,38 @@
     // *********************************
     // :: 9.0 Magnific Popup Active Code
     // *********************************
-    if ($.fn.magnificPopup) {
-        $('.video-play-btn').magnificPopup({
-            type: 'iframe'
+    // Image modal functionality
+    (function ($) {
+        'use strict';
+    
+        $(document).ready(function () {
+            // Ensure fullscreen view is hidden when the page loads
+            $('#fullscreen-view').hide();
+    
+            // Click event for gallery images
+            $('.gallery-img').on('click', function () {
+                var src = $(this).attr('src');
+                $('#fullscreen-img').attr('src', src);
+                $('#fullscreen-view').fadeIn(); // Show the fullscreen view
+            });
+    
+            // Close button functionality
+            $('#close-btn').on('click', function () {
+                $('#fullscreen-view').fadeOut(); // Hide the fullscreen view
+            });
+    
+            // Close image view when clicking outside of the image
+            $('#fullscreen-view').on('click', function (e) {
+                if (e.target.id === 'fullscreen-view') {
+                    $('#fullscreen-view').fadeOut(); // Hide the fullscreen view
+                }
+            });
         });
-        $('.portfolio-img').magnificPopup({
-            type: 'image',
-            gallery: {
-                enabled: true,
-                preload: [0, 2],
-                navigateByImgClick: true,
-                tPrev: 'Previous',
-                tNext: 'Next'
-            }
-        });
-    }
+    
+    })(jQuery);
+    
+    
+    
 
     // **************************
     // :: 10.0 Tooltip Active Code
@@ -190,15 +207,22 @@
         });
     }
 
-    // ****************************
-    // :: 13.0 Scrollup Active Code
-    // ****************************
-    if ($.fn.scrollUp) {
-        alime_window.scrollUp({
-            scrollSpeed: 1000,
-            scrollText: '<i class="arrow_carrot-up"</i>'
+    $(document).ready(function() {
+        // Show or hide the "Back to Top" button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('.back-to-top1').fadeIn();
+            } else {
+                $('.back-to-top1').fadeOut();
+            }
         });
-    }
+        
+        // Smooth scrolling to top when the button is clicked
+        $('.back-to-top1').click(function() {
+            $('html, body').animate({ scrollTop: 0 }, 600);
+            return false;
+        });
+    });
 
     // *********************************
     // :: 14.0 Prevent Default 'a' Click

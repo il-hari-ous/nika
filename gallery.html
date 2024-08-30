@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Startup - Startup Website Template</title>
+    <title>E.J.B Banquet Hall
+</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -31,7 +32,135 @@
     <link href="css/style.css" rel="stylesheet">
 
 </head>
+<style>
+    .gallery-area {
+        padding: 80px 0;
+    }
+    
+    .projects-menu {
+        margin-bottom: 40px;
+    }
+    
+    .portfolio-menu .btn {
+        margin: 5px;
+        border-radius: 25px;
+        padding: 10px 20px;
+        background-color: #fff;
+        color: #333;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+    }
+    
+    .portfolio-menu .btn.active,
+    .portfolio-menu .btn:hover {
+        background-color: #333;
+        color: #fff;
+    }
+    
+    .single-gallery-item {
+        padding: 15px;
+    }
+    
+    .portfolio-content {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .portfolio-content img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+    
+    .portfolio-content:hover img {
+        transform: scale(1.05);
+    }
+    
+    .hover-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .portfolio-content:hover .hover-content {
+        opacity: 1;
+    }
+    
+    .portfolio-img {
+        color: #fff;
+        font-size: 30px;
+        transition: transform 0.3s ease;
+    }
+    
+    .portfolio-content:hover .portfolio-img {
+        transform: scale(1.2);
+    }
 
+    .image-modal {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styles for the fullscreen image view */
+.fullscreen-view {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullscreen-view img {
+    max-width: 50%;
+    max-height: 90%;
+    border-radius: 15px;
+    position: relative;
+}
+
+/* Adjust the close button to be inside the image */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1001;
+}
+
+
+
+    </style>
 <body>
      
     <!-- Topbar Start -->
@@ -54,7 +183,6 @@
         </div>
     </div>
     <!-- Topbar End -->
-
 
    <!-- Navbar & Carousel Start -->
    <div class="container-fluid position-relative p-0">
@@ -137,13 +265,18 @@
         <div class="row">
             <div class="col-12">
                 <!-- Projects Menu -->
-                <div class="alime-projects-menu wow fadeInUp" data-wow-delay="100ms">
-                    <div class="portfolio-menu text-center">
-                        <button class="btn active" data-filter="*" style="margin: 5px; border-radius: 25px; transition: background-color 0.3s ease, color 0.3s ease;">All</button>
-                        <button class="btn" data-filter=".human" style="margin: 5px; border-radius: 25px; transition: background-color 0.3s ease, color 0.3s ease;">Marriage</button>
-                        <button class="btn" data-filter=".nature" style="margin: 5px; border-radius: 25px; transition: background-color 0.3s ease, color 0.3s ease;">Birthday</button>
-                        <button class="btn" data-filter=".country" style="margin: 5px; border-radius: 25px; transition: background-color 0.3s ease, color 0.3s ease;">Baby shower</button>
-                        <button class="btn" data-filter=".video" style="margin: 5px; border-radius: 25px; transition: background-color 0.3s ease, color 0.3s ease;">Reception</button>
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Projects Menu -->
+                        <div class="projects-menu">
+                            <div class="portfolio-menu text-center">
+                                <button class="btn active" data-filter="*">All</button>
+                                <button class="btn" data-filter=".marriage">Marriage</button>
+                                <button class="btn" data-filter=".birthday">Birthday</button>
+                                <button class="btn" data-filter=".baby">Baby shower</button>
+                                <button class="btn" data-filter=".reception">Reception</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -151,82 +284,82 @@
 
         <div class="row alime-portfolio">
             <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp" data-wow-delay="100ms" style="padding: 15px;">
-                <div class="single-portfolio-content" style="position: relative;">
-                    <img src="img/bg-img/39.jpg" alt="" style="border-radius: 15px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <div class="hover-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); border-radius: 15px; opacity: 0; transition: opacity 0.3s ease;">
-                        <a href="img/bg-img/39.jpg" class="portfolio-img" style="color: #fff; font-size: 30px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">+</a>
-                    </div>
+            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item marriage mb-30 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single-portfolio-content">
+                    <img src="img/bg-img/39.jpg" alt="Gallery Image" class="gallery-img" />
                 </div>
             </div>
 
             <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video human mb-30 wow fadeInUp" data-wow-delay="300ms" style="padding: 15px;">
-                <div class="single-portfolio-content" style="position: relative;">
-                    <img src="img/bg-img/40.jpg" alt="" style="border-radius: 15px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <div class="hover-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); border-radius: 15px; opacity: 0; transition: opacity 0.3s ease;">
-                        <a href="img/bg-img/40.jpg" class="portfolio-img" style="color: #fff; font-size: 30px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">+</a>
-                    </div>
+            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item marriage mb-30 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single-portfolio-content">
+                    <img src="img/bg-img/40.jpg" alt="Gallery Image" class="gallery-img" />
                 </div>
             </div>
 
             <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item country mb-30 wow fadeInUp" data-wow-delay="500ms" style="padding: 15px;">
-                <div class="single-portfolio-content" style="position: relative;">
-                    <img src="img/bg-img/41.jpg" alt="" style="border-radius: 15px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <div class="hover-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); border-radius: 15px; opacity: 0; transition: opacity 0.3s ease;">
-                        <a href="img/bg-img/41.jpg" class="portfolio-img" style="color: #fff; font-size: 30px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">+</a>
-                    </div>
+            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item marriage mb-30 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single-portfolio-content">
+                    <img src="img/bg-img/41.jpg" alt="Gallery Image" class="gallery-img" />
                 </div>
             </div>
 
             <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp" data-wow-delay="700ms" style="padding: 15px;">
-                <div class="single-portfolio-content" style="position: relative;">
-                    <img src="img/bg-img/42.jpg" alt="" style="border-radius: 15px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <div class="hover-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); border-radius: 15px; opacity: 0; transition: opacity 0.3s ease;">
-                        <a href="img/bg-img/42.jpg" class="portfolio-img" style="color: #fff; font-size: 30px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">+</a>
-                    </div>
+            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item marriage mb-30 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single-portfolio-content">
+                    <img src="img/bg-img/42.jpg" alt="Gallery Image" class="gallery-img" />
                 </div>
             </div>
 
             <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item nature mb-30 wow fadeInUp" data-wow-delay="100ms" style="padding: 15px;">
-                <div class="single-portfolio-content" style="position: relative;">
-                    <img src="img/bg-img/43.jpg" alt="" style="border-radius: 15px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <div class="hover-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); border-radius: 15px; opacity: 0; transition: opacity 0.3s ease;">
-                        <a href="img/bg-img/43.jpg" class="portfolio-img" style="color: #fff; font-size: 30px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">+</a>
-                    </div>
+            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item birthday mb-30 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single-portfolio-content">
+                    <img src="img/bg-img/43.jpg" alt="Gallery Image" class="gallery-img" />
                 </div>
             </div>
 
             <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video country mb-30 wow fadeInUp" data-wow-delay="300ms" style="padding: 15px;">
-                <div class="single-portfolio-content" style="position: relative;">
-                    <img src="img/bg-img/44.jpg" alt="" style="border-radius: 15px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <div class="hover-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); border-radius: 15px; opacity: 0; transition: opacity 0.3s ease;">
-                        <a href="img/bg-img/44.jpg" class="portfolio-img" style="color: #fff; font-size: 30px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">+</a>
-                    </div>
+            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item birthday mb-30 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single-portfolio-content">
+                    <img src="img/bg-img/40.jpg" alt="Gallery Image" class="gallery-img" />
                 </div>
             </div>
 
             <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item human mb-30 wow fadeInUp" data-wow-delay="500ms" style="padding: 15px;">
-                <div class="single-portfolio-content" style="position: relative;">
-                    <img src="img/bg-img/45.jpg" alt="" style="border-radius: 15px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <div class="hover-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); border-radius: 15px; opacity: 0; transition: opacity 0.3s ease;">
-                        <a href="img/bg-img/45.jpg" class="portfolio-img" style="color: #fff; font-size: 30px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">+</a>
-                    </div>
+            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item birthday mb-30 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single-portfolio-content">
+                    <img src="img/bg-img/41.jpg" alt="Gallery Image" class="gallery-img" />
                 </div>
             </div>
 
             <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item video country mb-30 wow fadeInUp" data-wow-delay="700ms" style="padding: 15px;">
-                <div class="single-portfolio-content" style="position: relative;">
-                    <img src="img/bg-img/46.jpg" alt="" style="border-radius: 15px; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-                    <div class="hover-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); border-radius: 15px; opacity: 0; transition: opacity 0.3s ease;">
-                        <a href="img/bg-img/46.jpg" class="portfolio-img" style="color: #fff; font-size: 30px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">+</a>
-                    </div>
+            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item baby mb-30 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single-portfolio-content">
+                    <img src="img/bg-img/42.jpg" alt="Gallery Image" class="gallery-img" />
+                </div>
+            </div>
+            <!-- Single Gallery Item -->
+            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item baby mb-30 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single-portfolio-content">
+                    <img src="img/bg-img/42.jpg" alt="Gallery Image" class="gallery-img" />
+                </div>
+            </div>
+            <!-- Single Gallery Item -->
+            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item baby mb-30 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single-portfolio-content">
+                    <img src="img/bg-img/42.jpg" alt="Gallery Image" class="gallery-img" />
+                </div>
+            </div>
+            <!-- Single Gallery Item -->
+            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item reception mb-30 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single-portfolio-content">
+                    <img src="img/bg-img/42.jpg" alt="Gallery Image" class="gallery-img" />
+                </div>
+            </div>
+            <!-- Single Gallery Item -->
+            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item reception mb-30 wow fadeInUp" data-wow-delay="100ms">
+                <div class="single-portfolio-content">
+                    <img src="img/bg-img/42.jpg" alt="Gallery Image" class="gallery-img" />
                 </div>
             </div>
         </div>
@@ -234,7 +367,14 @@
         
     </div>
 </div>
-<!-- Gallery Area End -->
+<!-- Fullscreen image view -->
+<div id="fullscreen-view" class="fullscreen-view">
+    <img id="fullscreen-img" src="" alt="Fullscreen Image">
+    <button id="close-btn" class="close-btn">&times;</button>
+</div>
+
+
+
 
 <br>
 <br>
@@ -393,6 +533,8 @@
    
     <!-- Footer Area End -->
 
+     <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top1"><i class="bi bi-arrow-up"></i></a>
 
     <!-- **** All JS Files ***** -->
     <!-- jQuery 2.2.4 -->
