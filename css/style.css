@@ -3,7 +3,7 @@
     --primary: #F05941;
     --secondary: #34AD54;
     --light: #EEF9FF;
-    --dark: #B31312;
+    --dark: #5F0F40;
 }
 
 
@@ -96,29 +96,25 @@
   background-color: rgba(236, 16, 16, 0.5);
 }
 
-/* Glow Animation */
-@keyframes glow {
-  0% {
-      text-shadow: 0 0 5px rgba(236, 16, 16, 0.4), 0 0 10px rgba(236, 16, 16, 0.3);
-  }
-  100% {
-      text-shadow: 0 0 20px rgba(236, 16, 16, 0.8), 0 0 30px rgba(236, 16, 16, 0.6), 0 0 40px rgba(236, 16, 16, 0.4);
-  }
-}
 
 
 /*** Heading ***/
 h1,
 h2,
 .fw-bold {
-    font-weight: 600 !important;
-    font-family: "Roboto Slab", serif;
+  font-family: "Playwrite CU", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.2;
 }
 
 #head{
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 400;
+  font-family: "Playwrite CU", cursive;
+  font-optical-sizing: auto;
+  font-weight:600;
   font-style: normal;
+  line-height: 1.2;
 }
 
 
@@ -135,28 +131,28 @@ h6,
     font-weight: 600 !important;
 }
 #A{
-    color: #F05941;
+    color: #FFB200;
 }
 #Top{
-    background-color: #B31312;
+    background-color: #5F0F40;
 }
 #cont{
 border-radius: 30px;
 }
 #fact{
-    background-color: #C70039;
+    background-color: #5F0F40;
 }
 
 #icon{
-    color:#C70039,
+    color:#5F0F40,
 }
 
 .text-red {
-    color: red;
+    color: #FFB200;
 }
 #abt{
     background-color: #070040;
-    font-family: "Rokkitt", serif;
+    font-family: "Playwrite CU", cursive;
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
@@ -272,7 +268,7 @@ border-radius: 30px;
 }
 
 #about{
-color: #EEF9FF;
+color: #5F0F40;
 }
 
 
@@ -295,7 +291,7 @@ color: #EEF9FF;
 
 /*** Button ***/
 .btn {
-    font-family: 'Nunito', sans-serif;
+  font-family: "Playwrite CU", cursive;
     font-weight: 600;
     transition: .5s;
 }
@@ -354,7 +350,7 @@ color: #EEF9FF;
 
 .sticky-top.navbar-dark .navbar-nav .nav-link {
     padding: 20px 0;
-    color: #141E46;
+    color: #FFB200;
   };
 
 
@@ -386,7 +382,7 @@ color: #EEF9FF;
     }
 
     .navbar-dark .navbar-brand h1 {
-        color: #B31312;
+        color: #FFB200;
     }
 }
 
@@ -402,7 +398,7 @@ color: #EEF9FF;
     
     .sticky-top.navbar-dark {
         position: fixed;
-        background: #ffffff;
+        background: #5F0F40;
     }
 
     .navbar-dark .navbar-nav .nav-link::before {
@@ -412,7 +408,7 @@ color: #EEF9FF;
         height: 2px;
         bottom: -1px;
         left: 50%;
-        background: #B31312;
+        background: #5F0F40;
         transition: .5s;
     }
 
@@ -427,7 +423,7 @@ color: #EEF9FF;
     }
 
     .sticky-top.navbar-dark .navbar-brand h1 {
-        color: #B31312;
+        color: #FFB200;
     }
 }
 
@@ -463,22 +459,25 @@ color: #EEF9FF;
   padding: 8px 30px;
   font-size: 18px;
   color: white;
-  background-color: #d62417;
+  background-color: #5F0540;
   border: none;
-  border-radius: 5px;
+  border-radius: 40px;
   cursor: pointer;
   outline: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .contact-button:hover {
-  background-color: #2980b9;
+  background-color: #FFB200;
+  color:black;
+  font-weight: bold;
 }
 
 .contact-button:active {
   background-color: red;
   transform: scale(0.95);
 }
+
 
 
 .form-comments {
@@ -2533,6 +2532,26 @@ input:required {
       padding-bottom: 20px;
   }
   
+
+
+
+
+  .social-btn {
+    background-color: #5F0F40; /* Default background color */
+    border-color: #5F0F40;
+    color: #ffffff; /* Default icon color */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: #FFB200; /* Background color on hover */
+    color: #000000; /* Icon color on hover */
+}
+
+.social-btn i {
+    transition: color 0.3s ease;
+}
+
 
 /*# sourceMappingURL=style.css.map */
 

@@ -46,7 +46,7 @@ Last Update: Feb 22, 2019
   padding: 0; }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Playwrite CU", cursive;
   font-weight: 400;
   font-size: 16px;
   position: relative;
@@ -58,7 +58,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Poppins", sans-serif;
+  font-family: "Playwrite CU", cursive;
   color: #252525;
   line-height: 1.3;
   font-weight: 600; }
@@ -119,7 +119,7 @@ ul {
   .jarallax > .jarallax-img {
     position: absolute;
     object-fit: cover;
-    font-family: 'object-fit: cover';
+    font-family: "Playwrite CU", cursive;
     top: 0;
     left: 0;
     width: 100%;
@@ -985,7 +985,7 @@ input:required {
     .breadcrumb-content .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
       content: '\f105';
       color: #ffffff;
-      font-family: "FontAwesome"; }
+      font-family: "Playwrite CU", cursive; }
 
 .breadcrumb-area.blog {
   height: 550px; }
