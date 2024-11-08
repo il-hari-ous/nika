@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>E.J.B Banquet Hall
+    <title>Maverick!
 </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
@@ -160,35 +160,211 @@
 
 
 
+        :root {
+            --surface-color: #fff;
+            --curve: 40;
+        }
+    
+        * {
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #fef8f8;
+        }
+    
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 5vw;
+            padding: 0;
+            list-style-type: none;
+        }
+    
+        .card {
+            position: relative;
+            display: block;
+            height: 100%;
+            border-radius: calc(var(--curve) * 1px);
+            overflow: hidden;
+            text-decoration: none;
+        }
+    
+        .card__image {
+            width: 100%;
+            height: auto;
+        }
+    
+        .card__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            border-radius: calc(var(--curve) * 1px);
+            background-color: var(--surface-color);
+            transform: translateY(100%);
+            transition: .2s ease-in-out;
+        }
+    
+        .card:hover .card__overlay {
+            transform: translateY(0);
+        }
+    
+        .card__header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 2em;
+            padding: 2em;
+            border-radius: calc(var(--curve) * 1px) 0 0 0;
+            background-color: var(--surface-color);
+            transform: translateY(-100%);
+            transition: .2s ease-in-out;
+        }
+    
+        .card__arc {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            z-index: 1;
+        }
+    
+        .card__arc path {
+            fill: var(--surface-color);
+            d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+        }
+    
+        .card:hover .card__header {
+            transform: translateY(0);
+        }
+    
+        .card__thumb {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    
+        .card__title {
+            font-size: 1em;
+            margin: 0 0 .3em;
+            color: #6A515E;
+        }
+    
+        .card__tagline {
+            display: block;
+            margin: 1em 0;
+            font-size: .8em;
+            color: #D7BDCA;
+        }
+    
+        .card__status {
+            font-size: .8em;
+            color: #D7BDCA;
+        }
+    
+        .card__description {
+            padding: 0 2em 2em;
+            margin: 0;
+            color: #D7BDCA;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+        .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Ensure it's on top of other content */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ more opacity for a dimmer background */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Center the modal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Add this to your existing CSS */
+#topicList li {
+    margin-bottom: 10px; /* Adjusts the space between each topic */
+    line-height: 1.5; /* Optional: Adjusts line height for readability */
+}
+
     </style>
+
+
+   
 <body>
      
     <!-- Topbar Start -->
-    <div class="container-fluid px-3 d-none d-lg-block" id="Top">
-        <div class="row gx-0">
-            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>abc@gmail.com</small>
-                </div>
+<div class="container-fluid bg-dark px-5 d-none d-lg-block" id="Top">
+    <div class="row gx-0">
+        <!-- Left side: Contact details -->
+        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <small class="me-4 text-light">
+                    <i class="fa fa-map-marker-alt me-2"></i>
+                    No:12,AGD NAGAR,2nd CROSS
+STREET,AVADI,CHENNAI-600054
+                </small>
+                <small class="me-4 text-light">
+                    <i class="fa fa-phone-alt me-2"></i>
+                   9500071862
+                </small>
+                <small class="text-light">
+                    <i class="fa fa-envelope-open me-2"></i>
+                   mbamavericks23@gmail.com
+                </small>
             </div>
-            <div class="col-lg-4 text-center text-lg-end">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
-                </div>
+        </div>
+
+        <!-- Right side: Social media links -->
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube fw-normal"></i></a>
             </div>
         </div>
     </div>
-    <!-- Topbar End -->
+</div>
+<!-- Topbar End -->
 
    <!-- Navbar & Carousel Start -->
    <div class="container-fluid position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-dark px-4 py-3 py-lg-0">
-        <a href="index.html" class="navbar-brand p-0">
-            <h1 class="m-0" id="head">E.J.B Banquet Hall</h1>
+        <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
+            <img src="imge/web logo.jpg" alt="Logo" style="width: 80px; height: 80px;" class="me-2">
+            
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
@@ -197,10 +373,10 @@
             <div class="navbar-nav ms-auto py-0">
                 <a href="index.html" class="nav-item nav-link ">Home</a>
                 <a href="about.html" class="nav-item nav-link ">About</a>
-                <a href="service.html" class="nav-item nav-link">Events</a>
-                <a href="gallery.html" class="nav-item nav-link active">Gallery</a>
-                <a href="price.html" class="nav-item nav-link">Video</a>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="service.html" class="nav-item nav-link">Services</a>
+                    <a href="gallery.html" class="nav-item nav-link">Project Titles</a>
+                    <a href="price.html" class="nav-item nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -208,22 +384,22 @@
     <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="w-100" src="img/bg.jpg" alt="Image" style="max-height: 380px;">
+                <img class="w-100" src="imge/bg-1.jpg" alt="Image" style="max-height: 380px;">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Special Events</h5>
-                        <h5 class="display-1 text-white mb-md-4 animated zoomIn">Best For All Your Special Occasions</h5>
+                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Special Projects For You</h5>
+                        <h5 class="display-1 text-white mb-md-4 animated zoomIn">Best For All Your Special Ideas</h5>
                         
                        
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="w-100" src="img/WhatsApp-Image-2021-12-27-at-2.27.15-PM-1.jpeg" alt="Image" style="max-height: 380px;">
+                <img class="w-100" src="imge/bg-1.jpg" alt="Image" style="max-height: 380px;">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Special Events</h5>
-                        <h5 class="display-1 text-white mb-md-4 animated zoomIn">Best For All Your Special Occasions</h5>
+                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Special Projects For You</h5>
+                        <h5 class="display-1 text-white mb-md-4 animated zoomIn">Best For All Your Special Ideas</h5>
                         
                     </div>
                 </div>
@@ -256,206 +432,717 @@
     <!-- Header Area End -->
 
     <!-- Breadcrumb Area Start -->
-   
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function animateOnScroll() {
+                const elementsToAnimate = document.querySelectorAll('.img-animate, .title-animate, .text-animate, .btn-animate');
+                const windowHeight = window.innerHeight;
+    
+                elementsToAnimate.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < windowHeight - 100) {
+                        el.classList.add('visible');
+                    }
+                });
+            }
+    
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Initial check on page load
+    
+            // Define topics for each card
+            const topics = {
+                1: [
+                    "1. A STUDY ON THE SAFETY MEASURES PROVIDED TO THE EMPLOYEES",
+        "2. A STUDY ON THE RELATIONSHIP BETWEEN THE MANAGEMENT AND THE EMPLOYEES",
+        "3. ASCERTAINING THE EFFECTIVENESS OF TRAINING AND DEVELOPMENT",
+        "4. A STUDY ON EMPLOYEE ABSENTEEISM IN ACL",
+        "5. A STUDY ON THE EFFECTIVENESS OF RECRUITMENT AND SELECTION PROCESS",
+        "6. TRAINING AND DEVELOPMENT",
+        "7. A STUDY ON RECRUITMENT AND SELECTION TRENDS IN BPO",
+        "8. A STUDY ABOUT CAREER DEVELOPMENT AND SUCCESS PLANNING",
+        "9. A STUDY ON EMPLOYEE WELFARE MEASURES AT AGRO",
+        "10. EMPLOYEE INVOLVEMENT",
+        "11. A STUDY ON THE SUPERIOR LEADERSHIP SKILLS WITH REFERENCE TO COMPANY",
+        "12. A STUDY ON THE EFFECTIVENESS OF TRAINING OF CAMPUS RECRUITS",
+        "13. EMPLOYEES PERCEPTION TOWARDS 360 DEGREE FEEDBACK PERFORMANCE APPRAISAL SYSTEM",
+        "14. A STUDY ON LABOUR WELFARE MEASURES",
+        "15. AN ANALYSIS ON THE WELFARE MEASURES PROVIDED TO THE WORKERS WITH SPECIAL REFERENCE TO COMPANY",
+        "16. IMPACT OF SHIFT TIMINGS AND WORKLIFE BALANCE OF WOMEN EMPLOYEES IN VESTRON IT",
+        "17. A STUDY OF DIFFERENT SOURCES OF ABSENTEEISM AND ITS EFFECTIVENESS WITH SPECIAL REFERENCE TO COMPANY",
+        "18. A STUDY TO ASCERTAIN THE MOTIVATION AND MORALE OF EMPLOYEES IN COMPANY",
+        "19. A STUDY ON LABOUR ABSENTEEISM TOWARDS COMPANY",
+        "20. A STUDY ON THE EFFECTIVENESS OF SMALL GROUP ACTIVITIES",
+        "21. A STUDY ON THE PERCEPTION OF EMPLOYEES ABOUT CORPORATE SOCIAL RESPONSIBILITY",
+        "22. TO STUDY AND EVALUATE THE QUALITY OF WORK LIFE AT COMPANY",
+        "23. A STUDY ON THE PERCEPTION OF EMPLOYEES ON STRESS WITH REFERENCE TO COMPANY",
+        "24. EMPLOYEES SATISFACTION TOWARDS THE WELFARE MEASURES PROVIDED BY COMPANY",
+        "25. A STUDY ON EFFECTIVENESS OF PERFORMANCE MANAGEMENT SYSTEM",
+        "26. A STUDY ON INSURANCE CONSULTANT PERCEPTION ON LIFE INSURANCE AGENCY AS A CAREER FOR COMPANY",
+        "27. A STUDY ON EXISTING PERFORMANCE APPRAISAL SYSTEM PRACTICED IN COMPANY",
+        "28. A STUDY ON THE SATISFACTION OF EMPLOYEES ON THE SAFETY MEASURES AT COMPANY",
+        "29. A STUDY ON THE EFFECTIVENESS OF HUMAN RESOURCE RETENTION POLICY AT COMPANY",
+        "30. A STUDY ON EFFECTIVENESS OF GROUP DYNAMICS AT COMPANY",
+        "31. A STUDY ON ORGANIZATIONAL CULTURE AND ITS IMPACT ON EMPLOYEES BEHAVIOUR IN COMPANY",
+        "32. A STUDY ON EMPLOYEES EMPOWERMENT AND ITS IMPACT ON JOB PERFORMANCE AT COMPANY",
+        "33. A STUDY ON CRITICAL EVALUATION OF PERFORMANCE APPRAISAL SYSTEM AT CONIFER IT SOLUTION",
+        "34. A STUDY ON ANALYSIS OF PERFORMANCE APPRAISAL SYSTEM IN COMPANY",
+        "35. A STUDY ON TOTAL QUALITY MANAGEMENT IN COMPANY",
+        "36. A STUDY ON QUALITY OF WORK LIFE OF EMPLOYEES AT COMPANY",
+        "37. A STUDY ON EFFECTIVENESS OF DOWNWARD COMMUNICATION WITH SPECIAL REFERENCE TO COMPANY",
+        "38. A STUDY ON ATTRITION IN BPO SERVICES LTD",
+        "39. A STUDY ON EMPLOYEE JOB SATISFACTION IN COMPANY",
+        "40. A STUDY ON EMPLOYEE SATISFACTION AT THE VARIOUS STAGES OF EMPLOYEE LIFECYCLE",
+        "41. A STUDY ON EMPLOYEES ABSENTEEISM IN COMPANY",
+        "42. A STUDY ON PERFORMANCE APPRAISAL IN COMPANY",
+        "43. A STUDY ON JOB SATISFACTION AT LOWER LEVEL WITH REFERENCE TO COMPANY KERALA",
+        "44. A STUDY ON MOTIVATION OF EMPLOYEES AT COMPANY",
+        "45. A STUDY ON RETENTION OF TALENT IN COMPANY",
+        "46. A STUDY ON HR PRACTICES IN LOGISTICS INDUSTRIES",
+        "47. TO ASCERTAIN THE MORALE AND EMPLOYEES JOB SATISFACTION",
+        "48. A STUDY ON MOTIVATION OF EMPLOYEES AT ACL",
+        "49. A STUDY ON DIFFERENT SOURCES OF RECRUITMENT AND ITS EFFECTIVENESS WITH SPECIAL REFERENCE TO COMPANY",
+        "50. A STUDY ON STRESS AMONG THE OFFICERS IN COMPANY",
+        "51. A STUDY ON WAGE AND SALARY ADMINISTRATION IN COMPANY",
+        "52. A STUDY ON EMPLOYEE HEALTH MANAGEMENT OF COMPANY",
+        "53. MEASUREMENT OF TRAINING PROGRAM EFFECTIVENESS GIVEN TO EMPLOYEES",
+        "54. A STUDY ON EMPLOYEES TRAINING AND DEVELOPMENT PROGRAMMES",
+        "55. A STUDY ON LEVELS OF EMPLOYEE SATISFACTION AT SRF LIMITED, MANALI",
+        "56. A STUDY TO MEASURE THE EFFECTIVENESS OF TIME MANAGEMENT AT COMPANY",
+        "57. EVALUATION OF ORGANISATIONAL CULTURE AT COMPANY",
+        "58. ANALYSING THE ROSTERING PATTERN AND SATISFACTION LEVEL IN RESPECT OF SECURITY PERSONNEL COMPANY",
+        "59. A STUDY ON THE CAUSES FOR INCREASING RATE OF ATTRITION IN COMPANY",
+        "60. TO ASCERTAIN THE JOB SATISFACTION OF EMPLOYEES AT COMPANY",
+        "61. TO EVALUATE THE EMPLOYEES OPINION REGARDING THE TRAINING PROGRAM IN COMPANY",
+        "62. TO ANALYSE THE INSURANCE ADVISORS PERFORMANCE IN CORPORATE BUSINESS FOR LIFE INSURANCE WITH SPECIFIC REFERENCE TO BANKS",
+        "63. A STUDY ON JOB SATISFACTION OF EMPLOYEES AT COMPANY",
+        "64. EMPLOYEE PERCEPTION TOWARDS TRAINING IN COMPANY",
+        "65. CRITICAL EVALUATION OF THE PERFORMANCE APPRAISAL SYSTEM IN COMPANY",
+        "66. A STUDY ON EFFECTIVENESS OF GROUP DYNAMICS AT COMPANY",
+        "67. A STUDY ON MOTIVATION OF EMPLOYEES IN THE COMPANY",
+        "68. A STUDY ON THE IMPACT OF LEADERSHIP STYLES ON EMPLOYEE SATISFACTION",
+        "69. A STUDY ON THE ROLE OF HUMAN RESOURCE MANAGEMENT IN COMPANY",
+        "70. A STUDY ON WORK-LIFE BALANCE AMONG EMPLOYEES IN COMPANY",
+        "71. A STUDY ON THE IMPACT OF WORKPLACE DIVERSITY ON EMPLOYEE PERFORMANCE",
+        "72. A STUDY ON THE RELATIONSHIP BETWEEN JOB SATISFACTION AND TURNOVER INTENTIONS",
+        "73. A STUDY ON THE ROLE OF HR IN EMPLOYEE ENGAGEMENT",
+        "74. A STUDY ON STRESS MANAGEMENT PRACTICES IN COMPANY",
+        "75. A STUDY ON THE EFFECT OF WORK ENVIRONMENT ON EMPLOYEE PRODUCTIVITY",
+        "76. A STUDY ON JOB SATISFACTION AND EMPLOYEE TURNOVER IN COMPANY",
+        "77. A STUDY ON THE EFFECTIVENESS OF EMPLOYEE FEEDBACK MECHANISMS",
+        "78. A STUDY ON THE IMPACT OF TRAINING PROGRAMS ON EMPLOYEE RETENTION",
+        "79. A STUDY ON THE PERCEPTION OF EMPLOYEES TOWARDS JOB SECURITY",
+        "80. A STUDY ON THE ROLE OF EMPLOYEE RECOGNITION IN MOTIVATING EMPLOYEES",
+        "81. A STUDY ON THE IMPACT OF ORGANIZATIONAL CHANGE ON EMPLOYEES",
+        "82. A STUDY ON THE EFFECTIVENESS OF COMMUNICATION STRATEGIES IN COMPANY",
+        "83. A STUDY ON THE INFLUENCE OF CORPORATE CULTURE ON EMPLOYEE SATISFACTION",
+        "84. A STUDY ON THE RELATIONSHIP BETWEEN TRAINING AND JOB PERFORMANCE",
+        "85. A STUDY ON THE IMPACT OF WORKLOAD ON EMPLOYEE STRESS LEVELS",
+        "86. A STUDY ON THE EFFECTIVENESS OF TEAM BUILDING ACTIVITIES",
+        "87. A STUDY ON THE ROLE OF HR IN FOSTERING INNOVATION",
+        "88. A STUDY ON EMPLOYEE SATISFACTION WITH WORKPLACE FACILITIES",
+        "89. A STUDY ON THE IMPACT OF REMUNERATION ON EMPLOYEE MOTIVATION",
+        "90. A STUDY ON THE ROLE OF COACHING AND MENTORING IN EMPLOYEE DEVELOPMENT",
+        "91. A STUDY ON EMPLOYEE ENGAGEMENT INITIATIVES IN COMPANY",
+        "92. A STUDY ON THE EFFECTIVENESS OF GRIEVANCE HANDLING MECHANISMS",
+        "93. A STUDY ON WORKPLACE HARASSMENT AND ITS IMPACT ON EMPLOYEES",
+        "94. A STUDY ON THE IMPACT OF SOCIAL MEDIA ON EMPLOYEE RELATIONS",
+        "95. A STUDY ON THE ROLE OF HR IN PROMOTING WORKPLACE SAFETY",
+        "96. A STUDY ON THE EFFECTIVENESS OF DIVERSITY TRAINING PROGRAMS",
+        "97. A STUDY ON THE IMPACT OF TECHNOLOGY ON JOB SATISFACTION",
+        "98. A STUDY ON EMPLOYEE PERCEPTION TOWARDS PERFORMANCE MANAGEMENT SYSTEM",
+        "99. A STUDY ON THE ROLE OF HR IN CULTIVATING EMPLOYEE LOYALTY",
+        "100. A STUDY ON THE IMPACT OF CONFLICT MANAGEMENT ON TEAM PERFORMANCE",
+        "101. A STUDY ON THE EFFECTIVENESS OF REMOTE WORK POLICIES",
+        "102. A STUDY ON THE RELATIONSHIP BETWEEN JOB SATISFACTION AND ORGANIZATIONAL COMMITMENT",
+        "103. A STUDY ON THE IMPACT OF EMPLOYEE BENEFITS ON JOB SATISFACTION",
+        "104. A STUDY ON THE ROLE OF HR IN PROMOTING WORKPLACE DIVERSITY",
+        "105. A STUDY ON THE EFFECTIVENESS OF EMPLOYEE ONBOARDING PROGRAMS",
+        "106. A STUDY ON THE IMPACT OF LEADERSHIP TRAINING ON MANAGERIAL PERFORMANCE",
+        "107. A STUDY ON EMPLOYEE SATISFACTION WITH REMUNERATION PACKAGES",
+        "108. A STUDY ON THE EFFECTIVENESS OF MENTORING PROGRAMS IN COMPANIES",
+        "109. A STUDY ON THE ROLE OF HR IN PROMOTING WORK-LIFE BALANCE",
+        "110. A STUDY ON THE IMPACT OF WORKPLACE ENVIRONMENT ON TEAM DYNAMICS",
+        "111. A STUDY ON EMPLOYEE ATTITUDE TOWARDS PERFORMANCE APPRAISAL",
+        "112. A STUDY ON THE EFFECTIVENESS OF EMPLOYEE RETENTION STRATEGIES",
+        "113. A STUDY ON THE ROLE OF HR IN ENHANCING EMPLOYEE PRODUCTIVITY",
+        "114. A STUDY ON THE IMPACT OF CULTURAL DIVERSITY ON TEAM PERFORMANCE",
+        "115. A STUDY ON THE EFFECTIVENESS OF TRAINING NEED ANALYSIS",
+        "116. A STUDY ON THE IMPACT OF JOB STRESS ON EMPLOYEE PERFORMANCE",
+        "117. A STUDY ON EMPLOYEE ENGAGEMENT AND JOB SATISFACTION",
+        "118. A STUDY ON THE EFFECTIVENESS OF COMMUNICATION IN WORKPLACE RELATIONSHIPS"
+                ],
+                2: [
+                    "1. A STUDY ON FINANCIAL PERFORMANCE",
+        "2. A STUDY ON AWARENESS OF VARIOUS SHORT TERM SOURCES OF FINANCE AMONG SMALL AND MEDIUM ENTERPRISES -NEW",
+        "3. ANALYSIS OF RECEIVABLES MANAGEMENT AT HOTEL",
+        "4. SHORT TERM LOANS",
+        "5. A SURVEY ON THE INVESTMENT PATTERN IN DEBT SCHEME OF MUTUAL FUND INVESTMENTS",
+        "6. A SURVEY ON THE PREFERENCE OF SALARIED CLASS ON VARIOUS INVESTMENT OPTIONS AVAILABLE TO THEM",
+        "7. A STUDY ON MAXIMIZING THE INCOME OF BANK",
+        "8. A STUDY ON WORKING CAPITAL MANAGEMENT AT SUNDRAM FASTENERS LTD ON INVENTORY CONTROL OF RAW MATERIALS",
+        "9. A STUDY ON INVESTMENT OPTIONS AND INVESTORS ATTITUDE TOWARDS INVESTMENT IN PRIVATE INSURANCE COMPANIES",
+        "10. INVESTMENT AWARENESS IN FINANCIAL ASSET AND PREFERENCE OF FINANCIAL INTERMEDIARIES IN EQUITIES TRADING",
+        "11. A STUDY ON IMPACT OF EARNINGS PER SHARE, DIVIDEND PER SHARE AND PRICE EARNING RATIO ON BEHAVIOUR OF SHARE MARKET PRICE MOVEMENTS WITH SPECIAL REFERENCE TO NSE",
+        "12. A STUDY ON OPERATING AND FINANCIAL PERFORMANCE",
+        "13. A STUDY ON COMPARATIVE ANALYSIS OF SHARE TRADING COMPANIES WITH SPECIAL REFERENCE TO NAVI",
+        "14. A STUDY ON THE FINANCIAL PERFORMANCE",
+        "15. ANALYSIS OF INVENTORY",
+        "16. A STUDY ON WORKING CAPITAL MANAGEMENT",
+        "17. A STUDY ON THE FINANCIAL PERFORMANCE",
+        "18. A STUDY ON CORPORATE GOVERNANCE AMONG CALL CENTRES",
+        "19. A STUDY ON INVENTORY MANAGEMENT WITH SPECIAL REFERENCE TO TOOLS STOCK",
+        "20. ANALYSIS OF WORKING CAPITAL REQUIREMENT OF SUGAR COMPANY",
+        "21. AN ANALYSIS OF INVESTMENT AVENUES PREFERRED BY INVESTORS",
+        "22. A STUDY ON CAPITAL BUDGETING",
+        "23. ANALYSIS OF CASH MANAGEMENT SR COMPANY LIMITED",
+        "24. A STUDY ON ABC ANALYSIS OF MATERIAL MANAGEMENT MOTOR INDIA LIMITED",
+        "25. A STUDY ON THE EFFECTIVENESS OF BUDGET AND BUDGETARY CONTROL IN LTD",
+        "26. A STUDY ON THE ECONOMIC VALUE ADDITION IN PETROLEUM CORPORATION LIMITED",
+        "27. A STUDY ON FINANCIAL STATEMENT ANALYSIS WITH SPECIAL REFERENCE",
+        "28. A STUDY ON THE FINANCIAL PERFORMANCE OF PHOTON INFOTECH PRIVATE LIMITED",
+        "29. A STUDY AND ANALYSIS ON THE PERFORMANCE OF DIFFERENT MUTUAL FUND",
+        "30. A STUDY ON OPERATING AND FINANCIAL PERFORMANCE ANALYSIS",
+        "31. A STUDY ON CONFIRMATIONS MATCHING SYSTEM IN TREASURY OPERATIONS WITH REFERENCE TO BANK",
+        "32. HEDGING STRATEGIES IN FOREIGN EXCHANGE OPTIONS WITH REFERENCE TO BANK",
+        "33. ANALYSIS OF WORKING CAPITAL WITH REFERENCE TO ACCOUNTS PAYABLES AND STOCKS",
+        "34. A STUDY ON INVENTORY MANAGEMENT WITH SPECIAL REFERENCE TO TOOLS STOCK AT AZTEC AUTO LIMITED",
+        "35. STUDY ON BANK FINANCE FOR WORKING CAPITAL REQUIREMENTS",
+        "36. A STUDY ON PERFORMANCE ANALYSIS OF SELECTED INVESTMENT IN LIFE INSURANCE CO. LTD.",
+        "37. A STUDY BASED ON THE PERFORMANCE OF EQUITY LINKED SAVING SCHEMES AND VARIOUS SCHEMES ON THE BASIS OF RETURNS IN MUTUAL FUNDS",
+        "38. A STUDY ON FINANCIAL STATEMENT ANALYSIS OF SMARTX COLLECTIONS",
+        "39. A COMPARATIVE STUDY ON ULIP PRODUCTS NAV OF SELECTIVE INSURANCE COMPANIES",
+        "40. A STUDY ON COST VOLUME PROFIT ANALYSIS",
+        "41. A STUDY ON PORTFOLIO MANAGEMENT AND INVESTMENTS IN INTERCONNECTED STOCK EXCHANGE OF INDIA LTD",
+        "42. ANALYSIS OF VARIOUS SECTORS IN CONSTRUCTION OF MODEL PORTFOLIO FOR FUNDA FUND",
+        "43. A COMPARATIVE STUDY ON ONE TIME INVESTMENT AND SYSTEMATIC INVESTMENT PLANS IN MUTUAL FUND",
+        "44. A STUDY ON INVESTING PARAMETERS OF MUTUAL FUND",
+        "45. A STUDY ON ANALYSIS OF FINANCIAL STATEMENT IN HOTEL AT CHENNAI.",
+        "46. ANALYZE THE FINANCIAL PERFORMANCE OF THE COMPANY THROUGH THE RELEVANT FINANCIAL ANALYSIS.",
+        "47. A STUDY AND ANALYSIS OF RECEIVABLE MANAGEMENT COMPANY CHENNAI.",
+        "48. TRANSFORMATION OF A FINANCIAL FUNCTION THROUGH AN ERP ENVIRONMENT",
+        "49. FINANCIAL PERFORMANCE OF TCC LIMITED FOR THE LAST FIVE YEARS",
+        "50. A STUDY ON COSTING SYSTEMS WITH REFERENCE TO ALLOCATION AND APPORTIONMENT OF VARIABLE OVERHEADS",
+        "51. A STUDY ON SARBANES OXLEY",
+        "52. A STUDY ON GROWTH AND INFLUENCE OF DEPOSITORY IN CAPITAL MARKET",
+        "53. A STUDY ON UTILISATION OF WORKING CAPITAL",
+        "54. ANALYSE THE EXISTING SYSTEM OF CAPITAL BUDGETING PROCESS",
+        "55. A STUDY ON WORKING CAPITAL MANAGEMENT",
+        "56. A STUDY ON THE PERFORMANCE OF MUTUAL FUND SCHEMES",
+        "57. THE ANALYSIS OF RISK INVOLVED IN PORTFOLIO MANAGEMENT OF LIFE INSURANCE COMPANY LTD",
+        "58. ANALYSE THE PERFORMANCE OF THE BANK LTD.",
+        "59. A STUDY ON UTILISATION OF WORKING CAPITAL IN TAKE SOLUTIONS CHENNAI",
+        "60. A STUDY ON THE EFFECTIVENESS OF BUDGET AND BUDGETARY CONTROL IN LTD",
+        "61. A STUDY ON THE ECONOMIC VALUE ADDITION IN AL",
+        "62. A STUDY ON THE FINANCIAL PERFORMANCE",
+        "63. A STUDY ON THE FINANCIAL PERFORMANCE OF PHOTON INFOTECH PRIVATE LIMITED",
+        "64. A STUDY AND ANALYSIS ON THE PERFORMANCE OF DIFFERENT MUTUAL FUNDS",
+        "65. A STUDY ON CAPITAL BUDGETING",
+        "66. A STUDY ON INVENTORY MANAGEMENT IN FASTENERS LTD",
+        "67. ANALYSIS OF THE WORKING CAPITAL REQUIREMENT",
+        "68. A STUDY ON INVENTORY MANAGEMENT WITH SPECIAL REFERENCE TO TOOLS STOCK",
+        "69. A STUDY ON PERFORMANCE ANALYSIS OF SELECTED INVESTMENTS IN LIFE INSURANCE PVT LTD.",
+        "70. ANALYSIS OF WORKING CAPITAL REQUIREMENT",
+        "71. A STUDY ON PERFORMANCE ANALYSIS OF SELECTED INVESTMENTS IN LIFE INSURANCE PRIVATE LIMITED",
+        "72. OF WORKING CAPITAL WITH REFERENCE TO ACCOUNTS PAYABLES",
+        "73. A STUDY ON EXCHANGE RATE FLUCTUATION AND ITS IMPACT ON EXPORT OF TAMIL NADU NEWSPRINT AND PAPERS LIMITED, CHENNAI.",
+        "74. A COMPARATIVE STUDY ON ONE TIME INVESTMENT AND SYSTEMATIC INVESTMENT PLANS IN MUTUAL FUND",
+        "75. A STUDY ON FOREIGN EXCHANGE RISK MANAGEMENT WITH REGARDS TO VKC FINANCIAL SERVICES",
+        "76. AN ANALYTICAL STUDY ON EQUITY ORIENTED MUTUAL FUND",
+        "77. A COMPARATIVE STUDY BETWEEN TATA MUTUAL FUND AND REL MUTUAL FUND",
+        "78. A STUDY ON PERFORMANCE OF MID CAPITAL STOCKS",
+        "79. A STUDY ON FINANCIAL STATEMENT ANALYSIS IN HDFC BANK LTD AT BANGALORE",
+        "80. A STUDY ON PORTFOLIO ANALYSIS OF MUTUAL FUND WITH SPECIAL REFERENCE TO EQUITY AND DEBT FUNDS",
+        "81. A STUDY ON COMPARATIVE FINANCIAL STATEMENT ANALYSIS AT TTK HEALTHCARE LIMITED",
+        "82. A STUDY ON FINANCIAL STATEMENT ANALYSIS IN PADI BRANCH OF BANK AT CHENNAI",
+        "83. A STUDY ON ANALYSIS OF FINANCIAL STATEMENT IN LIMITED",
+        "84. A STUDY ON TECHNICAL ANALYSIS OF IT/ITES INDUSTRY SHARES AT DAWNAY DAY AV- CHENNAI",
+        "85. A STUDY ON FINANCIAL PERFORMANCE ANALYSIS IN HOME FINANCE LIMITED",
+        "86. A STUDY ON FINANCIAL PERFORMANCE ANALYSIS",
+        "87. TECHNICAL AND FUNDAMENTAL ANALYSIS OF SELECTED SECURITIES OF INDIAN STOCK MARKET",
+        "88. COMPARISON BETWEEN DIRECT INVESTMENT IN EQUITY AND INVESTMENT THROUGH MUTUAL FUNDS",
+        "89. PORTFOLIO MANAGEMENT",
+        "90. COMPARATIVE ANALYSIS OF SECTORAL MUTUAL FUND",
+        "91. A STUDY ON PERFORMANCE EVALUATION OF MUTUAL FUNDS IN INDIA",
+        "92. FUND ANALYSIS",
+        "93. FINANCIAL ANALYSIS",
+        "94. FINANCIAL STATEMENT ANALYSIS & BUSINESS VALUATION",
+        "95. FOREIGN EXCHANGE & RISK MANAGEMENT",
+        "96. TECHNICAL AND FUNDAMENTAL ANALYSIS OF CHOSEN SECURITIES",
+        "97. EQUITY ANALYSIS” BANKS",
+        "98. WORKING CAPITAL MANAGEMENT PROCEDURE IN SRI VIKASH CHENNAI",
+        "99. A STUDY ON TREND ANALYSIS OF FOREIGN INVESTMENT",
+        "100. A STUDY ON THE PERFORMANCE OF SELECTED MUTUAL FUNDS WITH REFERENCE TO NAV",
+        "101. A STUDY ON RISK RETURN TRADE OFF IN INDIVIDUAL INVESTOR WITH SPECIAL REFERENCE TO MUTUAL FUNDS"
+                ],
+                3: [
+                "1. A Study on Customer Expectations, Experience, and Satisfaction Levels Towards Services Provided",
+        "2. A Study on Satisfaction Levels of Services Provided",
+        "3. A Study on Traders' Perception and Expectation Towards Anchor Products",
+        "4. A Study on Customer Preferences and Satisfaction Levels Towards Their Expectations",
+        "5. A Study to Identify Why STD Usage Customers in Kerala Is Lesser than the National Average",
+        "6. A Study on the Awareness and Acceptance Level of HPP Among Home Loan Customers",
+        "7. A Study to Identify the Retail Penetration Level of Pre-Paid Cards",
+        "8. A Study on the Factors Affecting Dealer Performance to Evolve a Strategy for Increasing Market Share",
+        "9. Analytical Study of Premium Credit Card Users for Their Choice and to Create a Customer Profile for Future Promotions",
+        "10. A Study on Perception of Life Insurance Agency as a Career for BA Graduates",
+        "11. A Study on Investment Patterns and Preference of Retail Investors in Chennai City with Special Reference to Mutual Funds",
+        "12. A Study on Customer Awareness About ICICI Lombard",
+        "13. A Study on the Effectiveness of Services Provided to Private Banking Customers",
+        "14. A Study on Aided and Unaided Brand Recall of ICICI Lombard General Insurance Company Ltd. Home Insurance",
+        "15. A Study on Awareness Level of Tata Indicom with Special Reference to Product Mix for Profit Maximization",
+        "16. A Study on Identification of Non-Performing Dealers and Measures to be Taken to Convert Them into Performing Dealers of Talking Point in Chennai",
+        "17. A Study on the Consumer Perception of Hyundai Santro Cars",
+        "18. Assessment About the Level of Awareness of Specialty Services Offered by Hospitals",
+        "19. Evolution of Management Technique for Controlling NPA",
+        "20. A Study on Internal Communication Process",
+        "21. A Study on Market Feasibility of Bulk Selling of International Long Distance Calls",
+        "22. A Study of Investment Patterns and Customer Perception Towards Mutual Funds",
+        "23. Identification and Analysis of Market Segments",
+        "24. A Study on Customer Perception of the Product of HDFC Standard Life Insurance Company Ltd.",
+        "25. A Study to Identify the Customer Perception on Home Insurance",
+        "26. A Study on Functioning of Power Looms",
+        "27. A Comparative Study on Customer Preference on Mobile Communication: Private and Public Sector",
+        "28. A Study on Customers' Expectations and Satisfaction Levels Towards After Sales Service Provided",
+        "29. A Study to Identify the Potential Advisors for ICICI Prudential Life Insurance Company Limited",
+        "30. A Study on General Public’s Awareness of Non-Life Insurance Policies",
+        "31. A Study on the Perception of Home Insurance Customers Towards Advertising at ICICI Lombard General Insurance Company Ltd.",
+        "32. A Study on Investment Patterns with Special Reference to Small and Medium Capitalization Companies",
+        "33. A Study on Traders' Perception and Expectation Towards Various Products",
+        "34. A Study on Satisfaction Levels of Services Provided",
+        "35. A Study on the Factors Affecting Dealer Performance to Evolve a Strategy for Increasing Market Share",
+        "36. A Study on Existing Customers’ Perception Towards Tax Saving",
+        "37. A Comparative Analysis of Performance of Mutual Funds Between Private and Public Sectors",
+        "38. A Study on Analysis of the Customer Satisfaction Level Towards Landline Service Provided",
+        "39. To Develop a Web-Based Application for Customer Support and Analyze Customer Satisfaction on the Project",
+        "40. A Market Study About Laser Toner in Chennai City",
+        "41. A Study on Dealers’ Attitude and Consumers’ Preference Towards Various Products",
+        "42. A Study to Evaluate the Banking Services Provided to SME Customers",
+        "43. Design and Development of Training Information System",
+        "44. Comparative Study of UTI Mutual Funds with Private Mutual Funds in Stock Broking",
+        "45. A Study of the Extent of Receptiveness of the New Health Products Introduced",
+        "46. A Study on Perception of Investors Investing in Life Insurance",
+        "47. A Study on Customer Service Management in a Sewing Thread Manufacturing Company",
+        "48. A Study on Awareness and Expectations of Industrial Entities with Respect to Mortgage Programs",
+        "49. A Market Study About Dot Matrix Printers and Its Performance in Corporates",
+        "50. A Study on the Challenges Faced in Identifying Potential Advisors for Prudential",
+        "51. A Study on Purchase Behavior of Mobile Phones Among Women Segment in the City of Chennai",
+        "52. A Comparative Study on the Effectiveness of Search Methods in Iconium",
+        "53. A Study of the Extent of Receptiveness of the New Health Products Introduced",
+        "54. A Comparative Study of the Level of Satisfaction of Depository Participants",
+        "55. A Study on Investors' Perception Towards the Derivative Market",
+        "56. A Study to Assess the Perception of Mutual Fund Investors",
+        "57. A Comparative Study on Consumer Preference of Android and Windows Mobile Phones",
+        "58. Customer Perception in Developing Mobile Applications with Reference to Companies",
+        "59. A Study on Market Conditions and Strength of Air Asia",
+        "60. Brand Preferences of Customers Towards Air Conditioners in Chennai: An Empirical Study",
+        "61. Consumer Buying Behavior at Big Bazaar",
+        "62. Study of Consumer Behavior in Selecting Mobile Phones",
+        "63. A Study on Customer Satisfaction in the Airline Industry",
+        "64. A Study to Assess the Retailer’s Satisfaction of the In-Stores",
+        "65. A Study on Customer Relationship Management in Pharmaceutical Marketing",
+        "66. A Study on Marketing Strategies of Nestle Products in India",
+        "67. A Study on Online Marketing with Reference to Infotech",
+        "68. Factors Influencing Customers Towards Mobile Banking in Public and Private Banks",
+        "69. A Study on Investors' Perception Towards Online Share Trading",
+        "70. Enhancing Customer Relationship Management at MKB Enterprises",
+        "71. A Study on Customer Relationship Management in IT",
+        "72. Analysis of Strategies Adopted by MNCs to Cope Up with Indian Brands",
+        "73. The Comparative Study on Marketing Attributes: Videocon",
+        "74. Perception of Customer Towards Online Shopping in Chennai",
+        "75. A Study on Online Brand Building Services at Maverick and Services",
+        "76. An Analysis of Investment Avenues Preferred by Investors"
+                ],
+                4: [
+                    "1. A Comprehensive Study on Cloud Computing Technology",
+        "2. An Analysis of Peer Talk Multiparty",
+        "3. Online Personal Data Organizer",
+        "4. A Study on Software Project Monitoring Tool",
+        "5. A Study on Learning Management System",
+        "6. Network and Security Management",
+        "7. Security System Analysis",
+        "8. Preventing Data Attack in E-Commerce",
+        "9. QoS Guaranteed Load Sharing for Network Processors",
+        "10. Suresh - Data Security in E-Commerce Using Homomorphism Algorithm",
+        "11. A User-Oriented Image Retrieval System Based on Interactive Genetic Algorithm",
+        "12. A Web Usage Mining Framework for Mining Evolving User Profiles in Dynamic Websites",
+        "13. Dynamic Channel Allocation for Wireless Zone-Based Multicast and Broadcast Service",
+        "14. Novel Approaches for Biometric Systems Fingerprint Matching Incorporating Ridge Features",
+        "15. On-Demand Checkpointing for Grid Application Reliability Using Communicating Process Model",
+        "16. Ontology Based Business Process Customization for Composite Web Services",
+        "17. Watermarking in Relational Databases",
+        "18. Detective Agency Management System",
+        "19. Human Resource Management System - Full Project",
+        "20. Web-Based Vehicle Information Retrieval Using Mobile Phone",
+        "21. A Study on Data Security in Cloud Computing at IT",
+        "22. Library Information Control Application",
+        "23. Automobile Showroom Maintenance System",
+        "24. Integrated Project Management System",
+        "25. Library Information Control Application (LICA) at Winsar Infosoft Private Limited",
+        "26. Automobile Showroom Maintenance System for Library Information Control Application",
+        "27. Automobile Showroom Maintenance System for Nagappa Motors Pvt Ltd",
+        "28. Time Sheet of the Company at Winsar Infosoft Private Limited",
+        "29. Recruitment Management System",
+        "30. Payroll System at Asia HR Technologies Limited",
+        "31. Office Management System at Bahwan Cybertek Pvt. Ltd.",
+        "32. Bus Travel Agency System for SRM Travels Private Limited",
+        "33. A Study on Asynchronous Server Interaction Using AJAX and XML DOM",
+        "34. Enterprise Organizer",
+        "35. Visitor Management System",
+        "36. Fuel Management System",
+        "37. Image Processing System",
+        "38. Library Management Systems",
+        "39. Asset Management Systems",
+        "40. Sales Order Processing System for Carewell Corporation",
+        "41. A Study on Fast Local Rerouting for Handling Transient Link Failures",
+        "42. Mobile Phone Based Webcam for Java Enabled Phones",
+        "43. Human Resource Management System",
+        "44. Hospital Management System",
+        "45. Simple Hosting Solutions",
+        "46. VoIP - Library Development",
+        "47. Anonymity Server",
+        "48. Transport Information System",
+        "49. Multi Router Analysis System",
+        "50. Query Analyser",
+        "51. Multipurpose ATM System",
+        "52. Library Management System",
+        "53. Flower Shop Management System",
+        "54. Flight Reservation System",
+        "55. Citizen Card Systems",
+        "56. Sugar Factory Maintenance System",
+        "57. Web-Based Vehicle Information Retrieval Using Mobile Phone System",
+        "58. Mail Organizer System",
+        "59. Computer Institute Maintenance Systems",
+        "60. Quarters Maintenance Services Systems",
+        "61. Product Distribution and Inventory Transition System",
+        "62. Automation of Town Panchayat System",
+        "63. Students Attendance Maintenance Systems",
+        "64. Data Transfer Using FTP",
+        "65. Remote Method Invocation Server"
+    
+                ],
+                5: [
+                    "1. A Study on Effectiveness of Container Operation at Logistics, Chennai",
+        "2. A Study on Vendor Rating at Mills Company Limited, Chennai",
+        "3. A Study and Analysis of Supply Chain Over Internal Transit Time Company",
+        "4. A Study on Material Handling Issues for Reducing Line Stoppage in Company Chennai",
+        "5. A Study on Vendor Rating System Company Chennai",
+        "6. A Study on Development of Optimal Logistics Strategy and Effectiveness of Freight Management at Company Chennai",
+        "7. A Study for Reducing the Raw Material Cost Done at Company Ponneri",
+        "8. A Study on Implementation of Statistical Process Control (SPC) in Mainetti Company",
+        "9. A Study on Introduction of Kanban System Company Maraimalainagar",
+        "10. A Study on Reducing Damage to Less Than 1% in Company at Chennai",
+        "11. A Study on Implementation of Lean Manufacturing at Company, Maraimalainagar",
+        "12. A Study on the Effectiveness of Supply Chain Management at Company, Chennai",
+        "13. A Study on Effectiveness of Six Sigma Operations",
+        "14. A Study on Capacity Planning at Company, Arakkonam",
+        "15. A Study on Supply Chain Process and Relationship at Company, Arakkonam",
+        "16. A Study on Effectiveness and Implementation of Continuous Improvement Process at Company",
+        "17. A Study on Vehicle Optimization Company, Puzhal",
+        "18. A Study on Effectiveness of Production Planning and Control (PPC) at Company, Maraimalainagar",
+        "19. A Study on Just in Time at Company, Chennai",
+        "20. A Study on Inventory Management",
+        "21. A Study on Effectiveness of Total Quality Management",
+        "22. A Study on Supply Chain Management",
+        "23. A Study on Supply Chain Process and Relationship",
+        "24. Service Level Quality - Standards, Measures, Monitoring and Enhancing: An Overview",
+        "25. A Comprehensive Study on Cloud Computing Technology in Project Management",
+        "26. A Project Report on Analysis of Customers Using Global System",
+        "27. A Study for Reducing the Raw Material Cost",
+        "28. A Study on Designing Service and Work Process Strategy Management at iMind",
+        "29. A Study on Development of International Expansion Operations at LSA Logistics",
+        "30. A Study on Effect of Project Management at Construction Company",
+        "31. A Study on Effectiveness of PeerTalk Multiparty in Software Project Management",
+        "32. A Study on Entrepreneurial Decision Making in IT Start-Up Company at Vestron IT",
+        "33. A Study on Marketing Strategies of Nestle Products India",
+        "34. A Study on Software Project Monitoring Tool",
+        "35. A Study on Quality of Services in Phoenix Logistics Pvt. Ltd.",
+        "36. A Study on Supply Chain Process and Its Relationship with Vendor at Chendur",
+        "37. A Study on Total Quality Management in Medi",
+        "38. A Study on Vendor Rating at Health Care",
+        "39. Safety Assessment and Management in Building During Night Time",
+        "40. Enhancing Customer Relationship Management at MKB Enterprises",
+        "41. A Study on Effectiveness of Container Operation and Packaging",
+        "42. A Study on Cargo Handling Process in Logistics",
+        "43. A Study on International Logistics Strategies and Supply Chain Management",
+        "44. Effectiveness of Supply Chain Process and Its Relationship with Suppliers"
+    
+                ],
+                6: [
+                "1. A Study on Supply Chain and Logistic Management",
+        "2. Contribution of Maritime Industry to Climate Change",
+        "3. A Study on the Effectiveness of Supply Chain Management",
+        "4. A Study on Transshipment",
+        "5. A Study on Development of Optimal Logistics Strategy and Effectiveness of Freight Management at Company Chennai",
+        "6. An Analytical Study of Impact of Foreign Institutional Investors",
+        "7. A Study on Foreign Exchange Risk Management",
+        "8. A Study on Supply Chain Process and Relationship",
+        "9. A Study on Export Process",
+        "10. A Study on Export Process of Gaskets Products at Sealing Products",
+        "11. A Study on Development of International Expansion Operations at LSA Logistics",
+        "12. A Study on Effectiveness of Container Operation in Overseas and International",
+        "13. A Study on Foreign Exchange Risk Management",
+        "14. A Study on Freight Management at Overseas",
+        "15. A Study on International Logistics Strategies and Freight Management at Logistics",
+        "16. A Study on Medical Tourism in India",
+        "17. A Study on Optimum Logistics Strategy in Freight Management at Overseas with Reference to Pigeon",
+        "18. Analysis of Strategies Adopted by Multinational Companies to Cope Up with Indian Brands",
+        "19. A Study on International Logistics Strategies and Supply Chain Management",
+        "20. A Study on Development of Optimal Logistics Strategy of Freight Forwarding in Shipping",
+        "21. Business Tourism of Coimbatore",
+        "22. A Study on International Export and Import Logistics Management",
+        "23. The Development of the Logistics Operations for the International Expansion"
+                ],
+                7: [
+                    "1. A Study on Supply Chain and Logistic Management",
+        "2. Contribution of Maritime Industry to Climate Change",
+        "3. A Study on the Effectiveness of Supply Chain Management",
+        "4. A Study on Transshipment",
+        "5. A Study on Development of Optimal Logistics Strategy and Effectiveness of Freight Management at Company Chennai",
+        "6. An Analytical Study of Impact of Foreign Institutional Investors",
+        "7. A Study on Foreign Exchange Risk Management",
+        "8. A Study on Supply Chain Process and Relationship",
+        "9. A Study on Export Process",
+        "10. A Study on Export Process of Gaskets Products at Sealing Products",
+        "11. A Study on Development of International Expansion Operations at LSA Logistics",
+        "12. A Study on Effectiveness of Container Operation in Overseas and International",
+        "13. A Study on Foreign Exchange Risk Management",
+        "14. A Study on Freight Management at Overseas",
+        "15. A Study on International Logistics Strategies and Freight Management at Logistics",
+        "16. A Study on Medical Tourism in India",
+        "17. A Study on Optimum Logistics Strategy in Freight Management at Overseas with Reference to Pigeon",
+        "18. Analysis of Strategies Adopted by Multinational Companies to Cope Up with Indian Brands",
+        "19. A Study on International Logistics Strategies and Supply Chain Management",
+        "20. A Study on Development of Optimal Logistics Strategy of Freight Forwarding in Shipping",
+        "21. Business Tourism of Coimbatore",
+        "22. A Study on International Export and Import Logistics Management",
+        "23. The Development of the Logistics Operations for the International Expansion"
+                ], 8: [
+                    "1. A Study for Reducing the Raw Material Cost at Rane Engine Valves Limited, Ponneri",
+        "2. A Study on Effectiveness of Production Planning and Control (PPC) at India Pistons Pins & Liners Ltd., Maraimalainagar",
+        "3. A Study on Strategies for Raw Material Cost Reduction"
+                ], 9: [
+                    "1. A Descriptive Study About Hospital Acquired Conditions in Inpatient Services",
+        "2. A Study on Hospital Acquired Conditions in Inpatient Services in Hospitals",
+        "3. A Study on Reducing Waiting Time in Out Patient Department",
+        "4. A Study on the Impact of Training on the Employees Efficiency",
+        "5. A Study on the Training Needs for the Non Clinical Staffs at Multi Speciality Hospital",
+        "6. A Study and Assessment About the Level of Awareness of Speciality Services",
+        "7. A Study on Patients Satisfaction in Out Patients Service Department in Multi Specialty"
+                ],
+            };
+    
+            const cards = document.querySelectorAll('.card'); 
+    const modalTopicList = document.getElementById('modalTopicList');
+    const closeButton = document.querySelector('.close');
+    
+    cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior
+    
+            // Get the index of the clicked card
+            const index = card.getAttribute('data-index');
+    
+            // Clear the existing topics in the modal
+            modalTopicList.innerHTML = '';
+    
+            // Add topics to the modal list
+            if (topics[index]) {
+                topics[index].forEach(topic => {
+                    const li = document.createElement('li');
+                    li.textContent = topic;
+                    modalTopicList.appendChild(li);
+                });
+            } else {
+                modalTopicList.innerHTML = '<li>No topics available.</li>';
+            }
+    
+            // Show the modal
+            document.getElementById('topicModal').style.display = 'block'; 
+        });
+    });
+    
+    // Close button functionality for modal
+    closeButton.addEventListener('click', () => {
+        document.getElementById('topicModal').style.display = 'none'; // Hide modal
+    });
+    
+    // Close modal when clicking outside of it
+    window.addEventListener('click', (event) => {
+        const modal = document.getElementById('topicModal');
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+    
+    
+        });
+    </script>
     <!-- Breadcrumb Area End -->
-
-   <!-- Gallery Area Start -->
-<div class="alime-portfolio-area section-padding-80 clearfix">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <!-- Projects Menu -->
-                <div class="row">
-                    <div class="col-12">
-                        <!-- Projects Menu -->
-                        <div class="projects-menu">
-                            <div class="portfolio-menu text-center">
-                                <button class="btn active" data-filter="*">All</button>
-                                <button class="btn" data-filter=".marriage">Marriage</button>
-                                <button class="btn" data-filter=".birthday">Birthday</button>
-                                <button class="btn" data-filter=".baby">Baby shower</button>
-                                <button class="btn" data-filter=".reception">Reception</button>
-                            </div>
+    <script>
+        document.querySelectorAll('.portfolio-menu .btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                document.querySelectorAll('.single_gallery_item').forEach(item => {
+                    if (item.classList.contains(filter.substring(1))) {
+                        item.style.display = 'block'; // Show the filtered items
+                        item.classList.add('fadeIn'); // Add animation class
+                    } else {
+                        item.style.display = 'none'; // Hide the other items
+                        item.classList.remove('fadeIn'); // Remove animation class
+                    }
+                });
+    
+                // Manage active class for buttons
+                document.querySelectorAll('.portfolio-menu .btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+    </script>
+   <!-- Gallery Section Start -->
+<div class="container mt-5">
+    <br><br><br><br><br>
+    <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
+        <h5 class="fw-bold text-uppercase" style="font-size: 20px;color: #5F0F40;">Projects Topics</h5>
+        <h1 class="mb-0" style="font-size: 36px; font-weight: 700;">What Our Clients get</h1>
+    </div>
+    <ul class="cards">
+        <li>
+            <a href="#" class="card" data-index="1">
+                <img src="imge/mbalogo.png" class="card__image" alt="Human Resource Management" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <div class="card__header-text">
+                            <h3 class="card__title">Human Resource Management </h3>
+                            <span class="card__status">click to see topics</span>
                         </div>
                     </div>
+                    <p class="card__description">Human Resource projects</p>
                 </div>
-            </div>
-        </div>
-
-        <div class="row alime-portfolio">
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item marriage mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="img/bg-img/39.jpg" alt="Gallery Image" class="gallery-img" />
-                </div>
-            </div>
-
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item marriage mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="img/bg-img/40.jpg" alt="Gallery Image" class="gallery-img" />
-                </div>
-            </div>
-
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item marriage mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="img/bg-img/41.jpg" alt="Gallery Image" class="gallery-img" />
-                </div>
-            </div>
-
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item marriage mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="img/bg-img/42.jpg" alt="Gallery Image" class="gallery-img" />
-                </div>
-            </div>
-
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item birthday mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="img/bg-img/43.jpg" alt="Gallery Image" class="gallery-img" />
-                </div>
-            </div>
-
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item birthday mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="img/bg-img/40.jpg" alt="Gallery Image" class="gallery-img" />
-                </div>
-            </div>
-
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item birthday mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="img/bg-img/41.jpg" alt="Gallery Image" class="gallery-img" />
-                </div>
-            </div>
-
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item baby mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="img/bg-img/42.jpg" alt="Gallery Image" class="gallery-img" />
-                </div>
-            </div>
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item baby mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="img/bg-img/42.jpg" alt="Gallery Image" class="gallery-img" />
-                </div>
-            </div>
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item baby mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="img/bg-img/42.jpg" alt="Gallery Image" class="gallery-img" />
-                </div>
-            </div>
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item reception mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="img/bg-img/42.jpg" alt="Gallery Image" class="gallery-img" />
-                </div>
-            </div>
-            <!-- Single Gallery Item -->
-            <div class="col-12 col-sm-6 col-lg-3 single_gallery_item reception mb-30 wow fadeInUp" data-wow-delay="100ms">
-                <div class="single-portfolio-content">
-                    <img src="img/bg-img/42.jpg" alt="Gallery Image" class="gallery-img" />
-                </div>
-            </div>
-        </div>
-
-        
-    </div>
-</div>
-<!-- Fullscreen image view -->
-<div id="fullscreen-view" class="fullscreen-view">
-    <img id="fullscreen-img" src="" alt="Fullscreen Image">
-    <button id="close-btn" class="close-btn">&times;</button>
-</div>
-
-
-
-
-<br>
-<br>
-    <!-- Follow Area Start -->
-    <div class="follow-area clearfix">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-heading text-center">
-                        <h2>Our Snaps</h2>
-                        <p>S&G Photography</p>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="card" data-index="2">
+                <img src="imge/mbalogo.png" class="card__image" alt="Financial Management" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <div class="card__header-text">
+                            <h3 class="card__title">Financial Management </h3>
+                            <span class="card__status">click to see topics</span>
+                        </div>
                     </div>
+                    <p class="card__description">Financial Management projects</p>
                 </div>
-            </div>
-        </div>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="card" data-index="3">
+                <img src="imge/mbalogo.png" class="card__image" alt="Marketing Management" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <div class="card__header-text">
+                            <h3 class="card__title">Marketing Management</h3>
+                            <span class="card__status">click to see topics</span>
+                        </div>
+                    </div>
+                    <p class="card__description">Marketing Management Projects</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="card" data-index="4">
+                <img src="imge/mbalogo.png" class="card__image" alt="Marketing Management" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <div class="card__header-text">
+                            <h3 class="card__title">Systems / Technology Management</h3>
+                            <span class="card__status">click to see topics</span>
+                        </div>
+                    </div>
+                    <p class="card__description">Systems / Technology Management Projects</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="card" data-index="5">
+                <img src="imge/mbalogo.png" class="card__image" alt="Marketing Management" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <div class="card__header-text">
+                            <h3 class="card__title">Operation / Logistics & Supply chain Management</h3>
+                            <span class="card__status">click to see topics</span>
+                        </div>
+                    </div>
+                    <p class="card__description">Operation / Logistics & Supply chain Management Projects</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="card" data-index="6">
+                <img src="imge/mbalogo.png" class="card__image" alt="Marketing Management" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <div class="card__header-text">
+                            <h3 class="card__title">International Business</h3>
+                            <span class="card__status">click to see topics</span>
+                        </div>
+                    </div>
+                    <p class="card__description">International Business Projects</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="card" data-index="7">
+                <img src="imge/mbalogo.png" class="card__image" alt="Marketing Management" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <div class="card__header-text">
+                            <h3 class="card__title"> Shipping & Port Management.</h3>
+                            <span class="card__status">click to see topics</span>
+                        </div>
+                    </div>
+                    <p class="card__description"> Shipping & Port Management. Projects</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="card" data-index="8">
+                <img src="imge/mbalogo.png" class="card__image" alt="Marketing Management" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <div class="card__header-text">
+                            <h3 class="card__title">Production Management</h3>
+                            <span class="card__status">click to see topics</span>
+                        </div>
+                    </div>
+                    <p class="card__description">Production Management Projects</p>
+                </div>
+            </a>
+        </li>
+    </ul>
 
-        <!-- Instagram Feed Area -->
-        <div class="instragram-feed-area owl-carousel">
-            <!-- Single Instagram Item -->
-            <div class="single-instagram-item">
-                <img src="img/bg-img/11.jpg" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#">
-                        
-                        <span>S&G Photography</span>
-                    </a>
-                </div>
-            </div>
-            <!-- Single Instagram Item -->
-            <div class="single-instagram-item">
-                <img src="img/bg-img/12.jpg" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#">
-                        
-                        <span>S&G Photography</span>
-                    </a>
-                </div>
-            </div>
-            <!-- Single Instagram Item -->
-            <div class="single-instagram-item">
-                <img src="img/bg-img/13.jpg" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#">
-                       
-                        <span>S&G Photography</span>
-                    </a>
-                </div>
-            </div>
-            <!-- Single Instagram Item -->
-            <div class="single-instagram-item">
-                <img src="img/bg-img/14.jpg" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#">
-                        
-                        <span>S&G Photography</span>
-                    </a>
-                </div>
-            </div>
-            <!-- Single Instagram Item -->
-            <div class="single-instagram-item">
-                <img src="img/bg-img/15.jpg" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#">
-                      
-                        <span>S&G Photography</span>
-                    </a>
-                </div>
-            </div>
-            <!-- Single Instagram Item -->
-            <div class="single-instagram-item">
-                <img src="img/bg-img/16.jpg" alt="">
-                <div class="instagram-hover-content text-center d-flex align-items-center justify-content-center">
-                    <a href="#">
-                       
-                        <span>S&G Photography</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+    <!-- Hidden Topics Section -->
+    <div id="topics" class="mt-5" style="display: none;">
+        <h2 class="text-center">Topics</h2>
+        <ul id="topicList"></ul>
     </div>
-    <!-- Follow Area End -->
+</div>
+
+<!-- Modal for displaying the list -->
+<div id="topicModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Topics</h2>
+        <ul id="modalTopicList"></ul>
+    </div>
+</div>
+
+
+
+<br>
+<br>
+
 
   <!-- Footer Start -->
 <div class="container-fluid bg-dark text-light mt-5">
@@ -469,15 +1156,16 @@
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-geo-alt text-primary me-2"></i>
-                            <p class="mb-0">123 Street, New York, USA</p>
+                             <p class="mb-0">No:12,AGD NAGAR,2nd CROSS
+                                STREET,AVADI,CHENNAI-600054</p>
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-envelope-open text-primary me-2"></i>
-                            <p class="mb-0">info@example.com</p>
+                            <p class="mb-0">mbamavericks23@gmail.com</p>
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-telephone text-primary me-2"></i>
-                            <p class="mb-0">+012 345 67890</p>
+                            <p class="mb-0">9500071862</p>
                         </div>
                         <div class="d-flex mt-4">
                             <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
@@ -502,28 +1190,6 @@
                 </div>
             </div>
 
-            <!-- Map Section -->
-            <div class="col-lg-4 col-md-6">
-                <div class="container-xxl py-5 px-0">
-                    <div style="
-                        position: relative;
-                        overflow: hidden;
-                        padding-top: 56.25%; /* Aspect Ratio 16:9 */
-                        border-radius: 15px; /* Rounded corners */
-                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for better appearance */
-                    ">
-                        <iframe class="w-100" style="
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            border: 0;
-                            border-radius: 15px; /* Rounded corners for the iframe itself */
-                        " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.498595052592!2d80.15764417482191!3d13.130919211365853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52630ea1ecb3c7%3A0x635f08deb7b29751!2sEJB%20Mahal!5e0!3m2!1sen!2sin!4v1708059410870!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" frameborder="0" aria-hidden="false" tabindex="0"></iframe>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>

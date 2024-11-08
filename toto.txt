@@ -1,0 +1,12 @@
+                <div class="carousel-item active">
+                    <video class="w-100" autoplay loop muted playsinline style="max-height: 1000px; object-fit: cover;">
+                        <source src="img/bg-img/vid.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center" style="padding-bottom: 100px;">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">E.J.B Mahal</h5>
+                            <h5 class="display-1 text-white mb-md-4 animated zoomIn">Best For All Your Special Ideas</h5>
+                        </div>
+                    </div>
+                </div>

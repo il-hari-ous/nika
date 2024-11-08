@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>E.J.B Banquet Hall
+    <title>Maverick!
 </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
@@ -30,6 +30,166 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --surface-color: #fff;
+            --curve: 40;
+        }
+    
+        * {
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #fef8f8;
+        }
+    
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 5vw;
+            padding: 0;
+            list-style-type: none;
+        }
+    
+        .card {
+            position: relative;
+            display: block;
+            height: 100%;
+            border-radius: calc(var(--curve) * 1px);
+            overflow: hidden;
+            text-decoration: none;
+        }
+    
+        .card__image {
+            width: 100%;
+            height: auto;
+        }
+    
+        .card__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            border-radius: calc(var(--curve) * 1px);
+            background-color: var(--surface-color);
+            transform: translateY(100%);
+            transition: .2s ease-in-out;
+        }
+    
+        .card:hover .card__overlay {
+            transform: translateY(0);
+        }
+    
+        .card__header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 2em;
+            padding: 2em;
+            border-radius: calc(var(--curve) * 1px) 0 0 0;
+            background-color: var(--surface-color);
+            transform: translateY(-100%);
+            transition: .2s ease-in-out;
+        }
+    
+        .card__arc {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            z-index: 1;
+        }
+    
+        .card__arc path {
+            fill: var(--surface-color);
+            d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+        }
+    
+        .card:hover .card__header {
+            transform: translateY(0);
+        }
+    
+        .card__thumb {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    
+        .card__title {
+            font-size: 1em;
+            margin: 0 0 .3em;
+            color: #6A515E;
+        }
+    
+        .card__tagline {
+            display: block;
+            margin: 1em 0;
+            font-size: .8em;
+            color: #D7BDCA;
+        }
+    
+        .card__status {
+            font-size: .8em;
+            color: #D7BDCA;
+        }
+    
+        .card__description {
+            padding: 0 2em 2em;
+            margin: 0;
+            color: #D7BDCA;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+        .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Add this to your existing CSS */
+#topicList li {
+    margin-bottom: 10px; /* Adjusts the space between each topic */
+    line-height: 1.5; /* Optional: Adjusts line height for readability */
+}
+
+    </style>
 </head>
 
 <body>
@@ -41,33 +201,47 @@
 
 
     <!-- Topbar Start -->
-    <div class="container-fluid  px-5 d-none d-lg-block" id="Top">
-        <div class="row gx-0">
-            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                    <small class="me-3 text-light"><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</small>
-                    <small class="me-3 text-light"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</small>
-                    <small class="text-light"><i class="fa fa-envelope-open me-2"></i>abc@gmail.com</small>
-                </div>
+<div class="container-fluid bg-dark px-5 d-none d-lg-block" id="Top">
+    <div class="row gx-0">
+        <!-- Left side: Contact details -->
+        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <small class="me-4 text-light">
+                    <i class="fa fa-map-marker-alt me-2"></i>
+                    No:12,AGD NAGAR,2nd CROSS
+STREET,AVADI,CHENNAI-600054
+                </small>
+                <small class="me-4 text-light">
+                    <i class="fa fa-phone-alt me-2"></i>
+                   9500071862
+                </small>
+                <small class="text-light">
+                    <i class="fa fa-envelope-open me-2"></i>
+                   mbamavericks23@gmail.com
+                </small>
             </div>
-            <div class="col-lg-4 text-center text-lg-end">
-                <div class="d-inline-flex align-items-center" style="height: 45px;">
-                   
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-facebook-f fw-normal"></i></a>
-                   
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href=""><i class="fab fa-instagram fw-normal"></i></a>
-                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href=""><i class="fab fa-youtube fw-normal"></i></a>
-                </div>
+        </div>
+
+        <!-- Right side: Social media links -->
+        <div class="col-lg-4 text-center text-lg-end">
+            <div class="d-inline-flex align-items-center" style="height: 45px;">
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="#"><i class="fab fa-youtube fw-normal"></i></a>
             </div>
         </div>
     </div>
-    <!-- Topbar End -->
+</div>
+<!-- Topbar End -->
 
 <!-- Navbar & Carousel Start -->
 <div class="container-fluid position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-dark px-4 py-3 py-lg-0">
-        <a href="index.html" class="navbar-brand p-0">
-            <h1 class="m-0" id="head">E.J.B Banquet Hall</h1>
+        <a href="index.html" class="navbar-brand p-0 d-flex align-items-center">
+            <img src="imge/web logo.jpg" alt="Logo" style="width: 80px; height: 80px;" class="me-2">
+            
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>
@@ -76,10 +250,10 @@
             <div class="navbar-nav ms-auto py-0">
                 <a href="index.html" class="nav-item nav-link ">Home</a>
                 <a href="about.html" class="nav-item nav-link ">About</a>
-                <a href="service.html" class="nav-item nav-link active">Events</a>
-                <a href="gallery.html" class="nav-item nav-link">Gallery</a>
-                <a href="price.html" class="nav-item nav-link">Video</a>
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
+                <a href="service.html" class="nav-item nav-link">Services</a>
+                    <a href="gallery.html" class="nav-item nav-link">Project Titles</a>
+                    <a href="price.html" class="nav-item nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact Us</a>
             </div>
         </div>
     </nav>
@@ -87,22 +261,22 @@
     <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="w-100" src="img/bg.jpg" alt="Image" style="max-height: 380px;">
+                <img class="w-100" src="imge/bg-1.jpg" alt="Image" style="max-height: 380px;">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Special Events</h5>
-                        <h5 class="display-1 text-white mb-md-4 animated zoomIn">Best For All Your Special Occasions</h5>
+                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Special Projects For You</h5>
+                        <h5 class="display-1 text-white mb-md-4 animated zoomIn">Best For All Your Special Ideas</h5>
                         
                        
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="w-100" src="img/WhatsApp-Image-2021-12-27-at-2.27.15-PM-1.jpeg" alt="Image" style="max-height: 380px;">
+                <img class="w-100" src="imge/bg-1.jpg" alt="Image" style="max-height: 380px;">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Special Events</h5>
-                        <h5 class="display-1 text-white mb-md-4 animated zoomIn">Best For All Your Special Occasions</h5>
+                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Special Projects For You</h5>
+                        <h5 class="display-1 text-white mb-md-4 animated zoomIn">Best For All Your Special Ideas</h5>
                         
                     </div>
                 </div>
@@ -130,101 +304,136 @@
             </div>
         </div>
     </div>
-    <!-- Full Screen Search End -->
-
-
-    <!-- Service Start -->
-<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s" >
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="section-title text-center position-relative pb-3 mb-5 mx-auto" style="max-width: 600px;">
-                <h1 class="fw-bold text-uppercase" style="color: red; font-family: 'Roboto Slab', serif;">EVENTS</h1>
-                <h5 style="color: Black;">Versatile & Good Ambience Venue for any type of Event. As your Venue partner, you can sit & relax to make your event memorable and a grand success.</h5>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="team-img position-relative overflow-hidden" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);">
-                        <div class="image-container">
-                            <img class="img-fluid w-100" src="img/about.jpg" alt="" style="border: 10px solid red; border-radius: 15px;">
-                            <div class="overlay" style="background-color: rgba(0, 0, 0, 0.5); transition: all 0.3s ease-in-out;">
-                                <div class="text-center py-4">
-                                    <h4 class="text" style="color: #FCF5ED;">Marriage</h4>
-                                </div>
+    <!-- Full Screen Search End -->       
+    
+    <!-- Gallery Section Start -->
+    <div class="container mt-5">
+        <br><br><br><br><br>
+        <div class="section-title text-center position-relative pb-3 mb-4 mx-auto" style="max-width: 600px;">
+            <h5 class="fw-bold text-uppercase" style="font-size: 20px;color: #5F0F40;">Projects Topics</h5>
+            <h1 class="mb-0" style="font-size: 36px; font-weight: 700;">What Our Clients get</h1>
+        </div>
+        <ul class="cards">
+            <li>
+                <a href="#" class="card" data-index="1">
+                    <img src="imge/mbalogo.png" class="card__image" alt="Human Resource Management" />
+                    <div class="card__overlay">
+                        <div class="card__header">
+                            <div class="card__header-text">
+                                <h3 class="card__title">Human Resource Management </h3>
+                                <span class="card__status">click to see topics</span>
                             </div>
                         </div>
+                        <p class="card__description">Human Resource projects</p>
                     </div>
-                </div>
-
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="team-img position-relative overflow-hidden" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
-                        <div class="image-container">
-                            <img class="img-fluid w-100" src="img/about.jpg" alt="" style="border: 10px solid red; border-radius: 15px;">
-                            <div class="overlay" style="background-color: rgba(0, 0, 0, 0.5); transition: all 0.3s ease-in-out;">
-                                <div class="text-center py-4">
-                                    <h4 class="text" style="color: #FCF5ED;">Reception</h4>
-                                </div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="card" data-index="2">
+                    <img src="imge/mbalogo.png" class="card__image" alt="Financial Management" />
+                    <div class="card__overlay">
+                        <div class="card__header">
+                            <div class="card__header-text">
+                                <h3 class="card__title">Financial Management </h3>
+                                <span class="card__status">click to see topics</span>
                             </div>
                         </div>
+                        <p class="card__description">Financial Management projects</p>
                     </div>
-                </div>
-
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="team-img position-relative overflow-hidden" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
-                        <div class="image-container">
-                            <img class="img-fluid w-100" src="img/about.jpg" alt="" style="border: 10px solid red; border-radius: 15px;">
-                            <div class="overlay" style="background-color: rgba(0, 0, 0, 0.5); transition: all 0.3s ease-in-out;">
-                                <div class="text-center py-4">
-                                    <h4 class="text" style="color: #FCF5ED;">Reception</h4>
-                                </div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="card" data-index="3">
+                    <img src="imge/mbalogo.png" class="card__image" alt="Marketing Management" />
+                    <div class="card__overlay">
+                        <div class="card__header">
+                            <div class="card__header-text">
+                                <h3 class="card__title">Marketing Management</h3>
+                                <span class="card__status">click to see topics</span>
                             </div>
                         </div>
+                        <p class="card__description">Marketing Management Projects</p>
                     </div>
-                </div>
-
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="team-img position-relative overflow-hidden" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
-                        <div class="image-container">
-                            <img class="img-fluid w-100" src="img/about.jpg" alt="" style="border: 10px solid red; border-radius: 15px;">
-                            <div class="overlay" style="background-color: rgba(0, 0, 0, 0.5); transition: all 0.3s ease-in-out;">
-                                <div class="text-center py-4">
-                                    <h4 class="text" style="color: #FCF5ED;">Reception</h4>
-                                </div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="card" data-index="4">
+                    <img src="imge/mbalogo.png" class="card__image" alt="Marketing Management" />
+                    <div class="card__overlay">
+                        <div class="card__header">
+                            <div class="card__header-text">
+                                <h3 class="card__title">Systems / Technology Management</h3>
+                                <span class="card__status">click to see topics</span>
                             </div>
                         </div>
+                        <p class="card__description">Systems / Technology Management Projects</p>
                     </div>
-                </div>
-
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="team-img position-relative overflow-hidden" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
-                        <div class="image-container">
-                            <img class="img-fluid w-100" src="img/about.jpg" alt="" style="border: 10px solid red; border-radius: 15px;">
-                            <div class="overlay" style="background-color: rgba(0, 0, 0, 0.5); transition: all 0.3s ease-in-out;">
-                                <div class="text-center py-4">
-                                    <h4 class="text" style="color: #FCF5ED;">Reception</h4>
-                                </div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="card" data-index="5">
+                    <img src="imge/mbalogo.png" class="card__image" alt="Marketing Management" />
+                    <div class="card__overlay">
+                        <div class="card__header">
+                            <div class="card__header-text">
+                                <h3 class="card__title">Operation / Logistics & Supply chain Management</h3>
+                                <span class="card__status">click to see topics</span>
                             </div>
                         </div>
+                        <p class="card__description">Operation / Logistics & Supply chain Management Projects</p>
                     </div>
-                </div>
-
-                <div class="col-lg-4 wow slideInUp" data-wow-delay="0.3s">
-                    <div class="team-img position-relative overflow-hidden" style="border-radius: 15px; box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
-                        <div class="image-container">
-                            <img class="img-fluid w-100" src="img/about.jpg" alt="" style="border: 10px solid red; border-radius: 15px;">
-                            <div class="overlay" style="background-color: rgba(0, 0, 0, 0.5); transition: all 0.3s ease-in-out;">
-                                <div class="text-center py-4">
-                                    <h4 class="text" style="color: #FCF5ED;">Reception</h4>
-                                </div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="card" data-index="6">
+                    <img src="imge/mbalogo.png" class="card__image" alt="Marketing Management" />
+                    <div class="card__overlay">
+                        <div class="card__header">
+                            <div class="card__header-text">
+                                <h3 class="card__title">International Business</h3>
+                                <span class="card__status">click to see topics</span>
                             </div>
                         </div>
+                        <p class="card__description">International Business Projects</p>
                     </div>
-                </div>
-
-            </div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="card" data-index="7">
+                    <img src="imge/mbalogo.png" class="card__image" alt="Marketing Management" />
+                    <div class="card__overlay">
+                        <div class="card__header">
+                            <div class="card__header-text">
+                                <h3 class="card__title"> Shipping & Port Management.</h3>
+                                <span class="card__status">click to see topics</span>
+                            </div>
+                        </div>
+                        <p class="card__description"> Shipping & Port Management. Projects</p>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="card" data-index="8">
+                    <img src="imge/mbalogo.png" class="card__image" alt="Marketing Management" />
+                    <div class="card__overlay">
+                        <div class="card__header">
+                            <div class="card__header-text">
+                                <h3 class="card__title">Production Management</h3>
+                                <span class="card__status">click to see topics</span>
+                            </div>
+                        </div>
+                        <p class="card__description">Production Management Projects</p>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    
+        <!-- Hidden Topics Section -->
+        <div id="topics" class="mt-5" style="display: none;">
+            <h2 class="text-center">Topics</h2>
+            <ul id="topicList"></ul>
         </div>
     </div>
-</div>
-<!-- Service End -->
 
 
     <!-- Testimonial Start -->
@@ -249,15 +458,16 @@
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-geo-alt text-primary me-2"></i>
-                            <p class="mb-0">123 Street, New York, USA</p>
+                            <p class="mb-0">No:12,AGD NAGAR,2nd CROSS
+                                STREET,AVADI,CHENNAI-600054</p>
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-envelope-open text-primary me-2"></i>
-                            <p class="mb-0">info@example.com</p>
+                            <p class="mb-0">mbamavericks23@gmail.com</p>
                         </div>
                         <div class="d-flex mb-2">
                             <i class="bi bi-telephone text-primary me-2"></i>
-                            <p class="mb-0">+012 345 67890</p>
+                            <p class="mb-0">9500071862</p>
                         </div>
                         <div class="d-flex mt-4">
                             <a class="btn btn-primary btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
@@ -282,28 +492,6 @@
                 </div>
             </div>
 
-            <!-- Map Section -->
-            <div class="col-lg-4 col-md-6">
-                <div class="container-xxl py-5 px-0">
-                    <div style="
-                        position: relative;
-                        overflow: hidden;
-                        padding-top: 56.25%; /* Aspect Ratio 16:9 */
-                        border-radius: 15px; /* Rounded corners */
-                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for better appearance */
-                    ">
-                        <iframe class="w-100" style="
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            border: 0;
-                            border-radius: 15px; /* Rounded corners for the iframe itself */
-                        " src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.498595052592!2d80.15764417482191!3d13.130919211365853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52630ea1ecb3c7%3A0x635f08deb7b29751!2sEJB%20Mahal!5e0!3m2!1sen!2sin!4v1708059410870!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" frameborder="0" aria-hidden="false" tabindex="0"></iframe>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
@@ -315,12 +503,8 @@
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
 
-          <!-- WhatsApp Button -->
-<a href="https://wa.me/919444832214" class="btn btn-lg btn-primary btn-lg-square rounded-circle whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
 
-<!-- Phone Button -->
-<a href="tel:+919444832214" class="btn btn-lg btn-primary btn-lg-square rounded-circle phone-btn"><i class="fa fa-phone"></i></a>
-
+    
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
